@@ -1,4 +1,6 @@
 (global-set-key (kbd "C-f") 'isearch-forward)
+(define-key isearch-mode-map (kbd "C-f") 'isearch-repeat-forward)
+(define-key isearch-mode-map (kbd "C-S-f") 'isearch-repeat-backward)
 (global-set-key (kbd "C-s") 'save-buffer)
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
 (global-set-key (kbd "C-q") 'save-buffers-kill-emacs)

@@ -4,3 +4,4 @@
 magithub
 *.elc
 *.eld
+/flycheck_init.el

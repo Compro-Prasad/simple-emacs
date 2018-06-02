@@ -1,0 +1,18 @@
+# -*- mode: snippet -*-
+# name: cp
+# key: cp
+# --
+/*= compile: g++ -std=c++11 -Wall -Werror -o $exe $src =*/
+/*= run: $exe =*/
+
+#include <bits/stdc++.h>
+
+using namepace std;
+
+int main() {
+  int test_count;
+  cin >> test_count;
+  while (test_count--) {
+    $0
+  }
+}

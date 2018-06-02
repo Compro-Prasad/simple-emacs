@@ -61,3 +61,13 @@ undo branch use ~left~ and ~right~ keys. To quit this state just press ~q~.
 
 * C/C++ setup
 Install clang++ on your distro for better experience.
+To auto compile a single C++ file your file should have:
+#+BEGIN_SRC C++ -i :exports code
+/*= compile: g++ -std=c++11 -Wall -Werror -o $exe $src =*/
+/*= run: $exe =*/
+#+END_SRC
+at top of your file. To insert this snippet of code type ~compile~ and hit ~TAB~
+key.
+
+If you are into competitive programming then you might want to try ~cp~ then hit
+~TAB~. For this you may need to create ~input.txt~ with program's input.

@@ -50,7 +50,7 @@ Closing tab closes its buffers too while closing buffers doesn't close the tab.
 Work in progress.
 | Select next occurance     | ~M-S-down~  |
 | Select previous occurance | ~M-S-up~    |
-| Select all occurances     | ~C-;~    |
+| Select all occurances     | ~C-;~       |
 | Create cursor with mouse  | ~M-S-click~ |
 
 * Undo using ~C-z~ and Redo using ~C-S-z~
@@ -58,3 +58,6 @@ Undo and redo in Emacs might be confusing. To clarify, undo is pretty straight
 forward but when you press ~C-S-z~ it will open *undo tree* where you can
 navigate the undo history using ~up~ and ~down~ keys. To switch to different
 undo branch use ~left~ and ~right~ keys. To quit this state just press ~q~.
+
+* C/C++ setup
+Install clang++ on your distro for better experience.

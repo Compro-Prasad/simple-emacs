@@ -287,7 +287,7 @@
 
 ;; Better window switching
 (use-package switch-window
-  :defer t
+  :ensure t
   :bind
   (("M-\\" . switch-window)
    ("C-x 1" . switch-window-then-maximize)

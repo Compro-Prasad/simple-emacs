@@ -3,6 +3,7 @@
   :bind (("C-o" . elscreen-find-file)
          ("C-n" . elscreen-find-file)
          ("C-x C-f" . elscreen-find-file)
+         ([menu-bar file new-file] . elscreen-find-file)
          ("C-w" . elscreen-kill-screen-and-buffers)
          ("<C-tab>" . elscreen-next)
          ("<C-S-tab>" . elscreen-previous)

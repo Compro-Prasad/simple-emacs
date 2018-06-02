@@ -5,8 +5,7 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 
 
-(when (< emacs-major-version 26)
-  (package-initialize))
+(package-initialize)
 
 
 ;; Install use-package

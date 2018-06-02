@@ -388,6 +388,10 @@
 (when (file-exists-p "~/.emacs.d/simple-cpp.el")
   (load-file "~/.emacs.d/simple-cpp.el"))
 
+;; Initialize python
+(when (file-exists-p "~/.emacs.d/simple-python.el")
+  (load-file "~/.emacs.d/simple-python.el"))
+
 
 
 ;; Convert 'yes and no' to 'y and n'

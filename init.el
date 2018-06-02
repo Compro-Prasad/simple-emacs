@@ -28,6 +28,9 @@
 (setq-default cursor-type '(bar . 2))
 (blink-cursor-mode 1)
 
+;; turn on line numbers
+(global-linum-mode 1)
+
 ;; disable toolbar mode
 ;; (tool-bar-mode 0)
 

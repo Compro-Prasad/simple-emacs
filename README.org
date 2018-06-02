@@ -1,0 +1,60 @@
+#+TITLE: Simple Emacs for Simple Users
+#+OPTIONS: toc:nil
+
+* Introduction
+GNU Emacs is a beast that cannot be tamed easily. But once you know its
+workarounds, it will be a place better than heaven. So, I have tried to convert
+this beast into a puppy that you will love using. If the puppy gets harsh on you
+then open an [[https://github.com/Compro-Prasad/simple-emacs/issues][issue]] or send a [[https://github.com/Compro-Prasad/simple-emacs/pulls][pull request]] so that the beast becomes nicer than
+before.
+
+* Tested on GNU Emacs development build
+It is recommended that you use Emacs development build instead of normal builds.
+To install development build on ubuntu do the following:
+#+BEGIN_SRC shell :exports code
+sudo add-apt-repository ppa:ubuntu-elisp/ppa
+sudo apt-get update
+sudo apt-get install emacs-snapshot
+#+END_SRC
+
+* Installing =simple-emacs=
+If you have been using Emacs from before then backup your configurations:
+#+BEGIN_SRC shell :exports code
+mv ~/.emacs.d ~/.emacs.d.bak
+mv ~/.emacs ~/.emacs.bak
+#+END_SRC
+Clone the =simple-emacs= repository using git:
+#+BEGIN_SRC shell :exports code
+git clone https://github.com/Compro-Prasad/simple-emacs.git ~/.emacs.d
+#+END_SRC
+Now open your Emacs and start doing your stuff.
+
+* Some conventions
+- ~C-x~ → Ctrl + X
+- ~M-x~ → Alt + X
+- ~C-S-x~ → Ctrl + Shift + X
+- ~C-M-x~ → Ctrl + Alt + X
+- ~M-S-x~ → Alt + Shift + x
+
+* ~C-g~ the Panic key
+When you feel you are doing things wrong then press ~C-g~ or ~ESC ESC~ as much
+as you want.
+
+* Creating files using ~C-n~ or ~C-o~
+When creating files you need to enter file name first.
+
+* Closing tabs using ~C-w~ vs Closing buffers ~C-x k~
+Closing tab closes its buffers too while closing buffers doesn't close the tab.
+
+* Multiple cursors
+Work in progress.
+| Select next occurance     | ~M-S-down~  |
+| Select previous occurance | ~M-S-up~    |
+| Select all occurances     | ~M-;~       |
+| Create cursor with mouse  | ~M-S-click~ |
+
+* Undo using ~C-z~ and Redo using ~C-S-z~
+Undo and redo in Emacs might be confusing. To clarify, undo is pretty straight
+forward but when you press ~C-S-z~ it will open *undo tree* where you can
+navigate the undo history using ~up~ and ~down~ keys. To switch to different
+undo branch use ~left~ and ~right~ keys. To quit this state just press ~q~.

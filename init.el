@@ -1,6 +1,5 @@
-(require 'package)
-
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+
 
 (when (< emacs-major-version 26)
   (package-initialize))
@@ -9,7 +8,9 @@
 ;; Install use-package
 (if (package-installed-p 'use-package)
     (require 'use-package)
-  (package-install 'use-package))
+  (progn
+    (package-refresh-contents)
+    (package-install 'use-package)))
 
 
 
@@ -118,6 +119,12 @@
 ;; Increase kill ring max capacity
 (setq kill-ring-max 1024)
 
+;; Moving text
+(use-package move-text
+  :defer t :ensure t
+  :bind (([C-S-up] . move-text-up)
+         ([C-S-down] . move-text-down)))
+
 ;; Handling trailing whitespaces in the buffer
 (setq-default show-trailing-whitespace nil)
 (defun my/set-show-whitespace-mode ()
@@ -154,6 +161,15 @@
 
 
 ;; Other packages
+
+;; yasnippet
+(use-package yasnippet
+  :ensure t :defer t
+  :init
+  (use-package yasnippet-snippets
+    :ensure t
+    :defer t)
+  (yas-global-mode 1))
 
 ;; Auto completion for Emacs lists
 (use-package helm
@@ -228,6 +244,7 @@
   :ensure t
   :bind-keymap ("C-c p" . projectile-command-map)
   :init
+  (use-package helm-ag :ensure t)
   (use-package helm-projectile
     :ensure t
     :init
@@ -242,6 +259,13 @@
   (use-package company-jedi :ensure t)
   (use-package company-tern :ensure t)
   (use-package company-irony :ensure t)
+  (use-package company-web :ensure t
+    :config
+    (defun my-web-mode-hook ()
+      "Hook for `web-mode'."
+      (set (make-local-variable 'company-backends)
+           '(company-tern company-web-html company-css company-yasnippet company-files)))
+    (add-hook 'web-mode-hook 'my-web-mode-hook))
   (use-package company-quickhelp
     :ensure t
     :init (company-quickhelp-mode))
@@ -288,7 +312,10 @@
 (use-package treemacs-projectile
   :ensure t
   :bind (([f5] . treemacs)
-         ([f6] . treemacs-projectile)))
+         ([f6] . treemacs-projectile)
+         :map treemacs-mode-map
+         ([mouse-1] . treemacs-RET-action)
+         ([mouse-3] . treemacs-leftclick-action)))
 
 ;; Multiple cursors is here
 (use-package multiple-cursors
@@ -333,8 +360,21 @@
 
 
 
+;; Other keybindings
 (when (file-exists-p "~/.emacs.d/other-keybinds.el")
   (load-file "~/.emacs.d/other-keybinds.el"))
+
+;; Other configurations
+(when (file-exists-p "~/.emacs.d/other-config.el")
+  (load-file "~/.emacs.d/other-config.el"))
+
+;; tabs configurations
+(when (file-exists-p "~/.emacs.d/simple-tabs.el")
+  (load-file "~/.emacs.d/simple-tabs.el"))
+
+;; Initialize cpp
+(when (file-exists-p "~/.emacs.d/simple-cpp.el")
+  (load-file "~/.emacs.d/simple-cpp.el"))
 
 
 

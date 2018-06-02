@@ -314,8 +314,8 @@
 ;; Sidebar
 (use-package treemacs-projectile
   :ensure t
-  :bind (([f5] . treemacs)
-         ([f6] . treemacs-projectile)
+  :bind (([f6] . treemacs)
+         ([f7] . treemacs-projectile)
          :map treemacs-mode-map
          ([mouse-1] . treemacs-RET-action)
          ([mouse-3] . treemacs-leftclick-action)))

@@ -72,7 +72,7 @@ key.
 If you are into competitive programming then you might want to try ~cp~ then hit
 ~TAB~. For this you may need to create ~input.txt~ with program's input.
 
-Use ~F5~ to run your single file programs.
+Use ~F9~ to run your single file programs.
 
 * Preview HTML pages
 When you open an HTML file in Emacs you can see its live preview by going to

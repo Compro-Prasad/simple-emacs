@@ -50,7 +50,7 @@ Closing tab closes its buffers too while closing buffers doesn't close the tab.
 Work in progress.
 | Select next occurance     | ~M-S-down~  |
 | Select previous occurance | ~M-S-up~    |
-| Select all occurances     | ~M-;~       |
+| Select all occurances     | ~C-;~    |
 | Create cursor with mouse  | ~M-S-click~ |
 
 * Undo using ~C-z~ and Redo using ~C-S-z~

@@ -234,7 +234,16 @@
 ;; Use web mode
 (use-package web-mode
   :ensure t :defer t
-  :mode "\\.\\(html\\|vue\\|htm\\)\\'")
+  :mode "\\.\\(html\\|vue\\|htm\\)\\'"
+  :init
+  (use-package simple-httpd
+    :ensure t
+    :init
+    (httpd-start))
+  (use-package impatient-mode
+    :ensure t
+    :init
+    (add-hook 'web-mode-hook 'impatient-mode)))
 
 ;; Smart select regions
 (use-package expand-region

@@ -76,6 +76,12 @@ Work in progress.
 - To close the tab but not the buffer you may try ~C-f4~.
 - To kill the buffer but not the tab you can use ~C-x k~.
 
+** Searching
+- ~C-f~ does forward search
+- ~C-S-f~ does backward search
+- ~C-r~ searches in a Git project. If it is not a Git repository then
+  directory is asked first.
+
 ** C/C++ setup
 Install clang++ on your distro for better experience.
 To auto compile a single C++ file your file should have:
@@ -103,6 +109,11 @@ sudo pip3 install anaconda_mode   # For python3
 #+END_SRC
 This will enable syntax checking and symbol completion for python
 files.
+
+- Find definitions using ~M-.~
+- Find assignments using ~M-*~
+- Find references using ~M-r~
+- Jump back to previous location using ~M-,~
 
 See [[https://github.com/proofit404/anaconda-mode#interactive-commands][official repository]] for more information on keybindings for
 jumping to definitions and stuff.

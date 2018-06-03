@@ -1,65 +1,82 @@
 #+TITLE: Simple Emacs for Simple Users
 #+OPTIONS: toc:nil
+#+STARTUP: indent
 
-* Introduction
+** Introduction
 GNU Emacs is a beast that cannot be tamed easily. But once you know its
 workarounds, it will be a place better than heaven. So, I have tried to convert
 this beast into a puppy that you will love using. If the puppy gets harsh on you
 then open an [[https://github.com/Compro-Prasad/simple-emacs/issues][issue]] or send a [[https://github.com/Compro-Prasad/simple-emacs/pulls][pull request]] so that the beast becomes nicer than
 before.
 
-* Tested on GNU Emacs development build
+** Tested on GNU Emacs development build
 It is recommended that you use Emacs development build instead of normal builds.
 To install development build on ubuntu do the following:
 #+BEGIN_SRC shell :exports code
-sudo add-apt-repository ppa:ubuntu-elisp/ppa
-sudo apt-get update
-sudo apt-get install emacs-snapshot
+ sudo add-apt-repository ppa:ubuntu-elisp/ppa
+ sudo apt-get update
+ sudo apt-get install emacs-snapshot
 #+END_SRC
 
-* Installing =simple-emacs=
+** Installing =simple-emacs=
 If you have been using Emacs from before then backup your configurations:
 #+BEGIN_SRC shell :exports code
-mv ~/.emacs.d ~/.emacs.d.bak
-mv ~/.emacs ~/.emacs.bak
+  mv ~/.emacs.d ~/.emacs.d.bak
+  mv ~/.emacs ~/.emacs.bak
 #+END_SRC
 Clone the =simple-emacs= repository using git:
 #+BEGIN_SRC shell :exports code
-git clone https://github.com/Compro-Prasad/simple-emacs.git ~/.emacs.d
+  git clone https://github.com/Compro-Prasad/simple-emacs.git ~/.emacs.d
 #+END_SRC
 Now open your Emacs and start doing your stuff.
 
-* Some conventions
+** Some conventions
 - ~C-x~ → Ctrl + X
 - ~M-x~ → Alt + X
 - ~C-S-x~ → Ctrl + Shift + X
 - ~C-M-x~ → Ctrl + Alt + X
 - ~M-S-x~ → Alt + Shift + x
 
-* ~C-g~ the Panic key
-When you feel you are doing things wrong then press ~C-g~ or ~ESC ESC~ as much
-as you want.
+** ~C-g~ the Panic key
+When you think you pressed the wrong key or Emacs isn't responding then you can
+press ~C-g~ to cancel any action.
 
-* Creating files using ~C-n~ or ~C-o~
-When creating files you need to enter file name first.
+** Creating and opening files
+- Press ~C-n~ or ~C-o~ to open or create a file. Both present you same
+  interface.
+- When creating files you need to enter file name first.
+- You can use ~up~ and ~down~ to switch between selections.
+- To get into a directory use ~right~ key on the selection.
+- To get back to previous directory use ~left~ key.
+- You can use ~TAB~ to list all possible actions on the selected candidate. Hit
+  ~TAB~ again to hide the candidates.
 
-* Closing tabs using ~C-w~ vs Closing buffers ~C-x k~
-Closing tab closes its buffers too while closing buffers doesn't close the tab.
-
-* Multiple cursors
+** Multiple cursors
 Work in progress.
 | Select next occurance     | ~M-S-down~  |
 | Select previous occurance | ~M-S-up~    |
 | Select all occurances     | ~C-;~       |
 | Create cursor with mouse  | ~M-S-click~ |
 
-* Undo using ~C-z~ and Redo using ~C-S-z~
-Undo and redo in Emacs might be confusing. To clarify, undo is pretty straight
-forward but when you press ~C-S-z~ it will open *undo tree* where you can
-navigate the undo history using ~up~ and ~down~ keys. To switch to different
-undo branch use ~left~ and ~right~ keys. To quit this state just press ~q~.
+** Undo using ~C-z~ and Redo using ~C-S-z~
+- To undo a change press ~C-z~ or ~C-/~.
+- There is no redo in Emacs, so when you use ~C-S-z~ it will open *undo tree*
+  where you can navigate the undo history using ~up~ and ~down~ keys. To switch
+  to different undo branch use ~left~ and ~right~ keys. To quit this state just
+  press ~q~.
 
-* C/C++ setup
+** Switching tabs and buffers
+- You can switch tabs using ~C-TAB~ and ~C-S-TAB~.
+- To switch buffers use ~C-x C-right~ and ~C-x C-left~.
+- You can switch to any buffer in any tab.
+- You can buffers using ~C-x b~ which also shows you recently opened files.
+
+** Closing tabs and buffers
+- You can close tab using ~C-w~ which will also kill the buffers in the tab.
+- To close the tab but not the buffer you may try ~C-f4~.
+- To kill the buffer but not the tab you can use ~C-x k~.
+
+** C/C++ setup
 Install clang++ on your distro for better experience.
 To auto compile a single C++ file your file should have:
 #+BEGIN_SRC C++ -i :exports code
@@ -74,6 +91,8 @@ If you are into competitive programming then you might want to try ~cp~ then hit
 
 Use ~F9~ to run your single file programs.
 
-* Preview HTML pages
+** Preview HTML pages
 When you open an HTML file in Emacs you can see its live preview by going to
 [[http://localhost:8080/imp/]].
+
+** Python

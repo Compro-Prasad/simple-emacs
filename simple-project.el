@@ -4,6 +4,7 @@
   :bind-keymap ("C-p" . projectile-command-map)
   :bind (:map projectile-command-map
               (":" . goto-line)
+              ("@" . simple-find-symbol)
               ("C-p" . helm-projectile)
               ("p" . helm-projectile))
   :init
@@ -13,6 +14,7 @@
     :init
     (helm-projectile-on))
   :config
+  (global-unset-key (kbd "C-c p"))
   (projectile-mode 1))
 
 (provide 'simple-project)

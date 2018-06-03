@@ -35,6 +35,13 @@ This command does not push text to `kill-ring'."
     (setq p2 (point))
     (delete-region p1 p2)))
 
+(defun simple-find-symbol ()
+  "Check for git project and then search."
+  (interactive)
+  (if (vc-find-root default-directory ".git")
+      (helm-grep-do-git-grep t)
+    (helm-do-ag)))
+
 ; bind them to emacs's default shortcut keys:
 (global-set-key (kbd "C-S-k") 'my-delete-line-backward) ; Ctrl+Shift+k
 (global-set-key (kbd "C-k") 'my-delete-line)
@@ -43,3 +50,4 @@ This command does not push text to `kill-ring'."
 (global-set-key (kbd "<C-backspace>") 'my-backward-delete-word)
 (global-set-key (kbd "<M-delete>") 'my-delete-word)
 (global-set-key (kbd "<C-delete>") 'my-delete-word)
+(global-set-key (kbd "C-r") 'simple-find-symbol)

@@ -80,7 +80,17 @@ Work in progress.
 - ~C-f~ does forward search
 - ~C-S-f~ does backward search
 - ~C-r~ searches in a Git project. If it is not a Git repository then
-  directory is asked first.
+  directory is asked first. For it to work in absence of git project
+  install [[https://github.com/ggreer/the_silver_searcher][the_silver_searcher]]:
+
+Ubuntu:
+#+BEGIN_SRC shell :exports code
+sudo apt install silversearcher-ag
+#+END_SRC
+Arch Linux:
+#+BEGIN_SRC shell :exports code
+sudo pacman -S the_silver_searcher
+#+END_SRC
 
 ** C/C++ setup
 Install clang++ on your distro for better experience.

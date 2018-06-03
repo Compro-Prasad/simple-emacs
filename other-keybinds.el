@@ -13,8 +13,8 @@
 (global-set-key (kbd "C-w") 'kill-buffer)
 
 (global-unset-key (kbd "C-t"))
-(global-set-key (kbd "C-t l") 'linum-mode)
-(global-set-key (kbd "C-t m") 'menu-bar-mode)
-(global-set-key (kbd "C-t t") 'tool-bar-mode)
+(global-set-key (kbd "C-T l") 'linum-mode)
+(global-set-key (kbd "C-T m") 'menu-bar-mode)
+(global-set-key (kbd "C-T t") 'tool-bar-mode)
 
 (global-set-key (kbd "M-ESC") 'keyboard-quit)

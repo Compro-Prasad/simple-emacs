@@ -186,7 +186,7 @@
           ("C-n" . helm-find-files)
           ("C-x C-f" . helm-find-files)
           ("C-x b" . helm-mini)
-          ("C-v" . helm-show-kill-ring))
+          ("C-S-v" . helm-show-kill-ring))
   :init
   (setq helm-candidate-number-limit       256  ;; number of items in completion list
         helm-M-x-fuzzy-match              t    ;; Fuzzy matching in M-x

@@ -42,7 +42,7 @@ When you think you pressed the wrong key or Emacs isn't responding then you can
 press ~C-g~ to cancel any action.
 
 ** Creating and opening files
-- Press ~C-n~ or ~C-o~ to open or create a file. Both present you same
+- Press ~C-n~ or ~C-o~ to open or create a file. Both present you the same
   interface.
 - When creating files you need to enter file name first.
 - You can use ~up~ and ~down~ to switch between selections.
@@ -58,7 +58,7 @@ Work in progress.
 | Select all occurances     | ~C-;~       |
 | Create cursor with mouse  | ~M-S-click~ |
 
-** Undo using ~C-z~ and Redo using ~C-S-z~
+** Undo and Redo
 - To undo a change press ~C-z~ or ~C-/~.
 - There is no redo in Emacs, so when you use ~C-S-z~ it will open *undo tree*
   where you can navigate the undo history using ~up~ and ~down~ keys. To switch
@@ -83,8 +83,8 @@ To auto compile a single C++ file your file should have:
 /*= compile: g++ -std=c++11 -Wall -Werror -o $exe $src =*/
 /*= run: $exe =*/
 #+END_SRC
-at top of your file. To insert this snippet of code type ~compile~ and hit ~TAB~
-key.
+at top of your file. To insert this code snippet type ~compile~ (in the buffer
+and not in the ~M-x~ prompt) and hit ~TAB~ key.
 
 If you are into competitive programming then you might want to try ~cp~ then hit
 ~TAB~. For this you may need to create ~input.txt~ with program's input.
@@ -96,3 +96,22 @@ When you open an HTML file in Emacs you can see its live preview by going to
 [[http://localhost:8080/imp/]].
 
 ** Python
+To make Emacs a Python IDE, you need to have anaconda_mode installed:
+#+BEGIN_SRC shell :exports code
+sudo pip2 install anaconda_mode   # For python2
+sudo pip3 install anaconda_mode   # For python3
+#+END_SRC
+This will enable syntax checking and symbol completion for python
+files.
+
+See [[https://github.com/proofit404/anaconda-mode#interactive-commands][official repository]] for more information on keybindings for
+jumping to definitions and stuff.
+
+** Toggling features
+| Keybinding | Feature         | Function        |
+|------------+-----------------+-----------------|
+| ~C-S-t m~  | Menu bar        | ~menu-bar-mode~ |
+| ~C-S-t t~  | Tool bar        | ~tool-bar-mode~ |
+| ~C-S-t l~  | Line numbers    | ~linum-mode~    |
+| ~C-S-t s~  | Syntax checking | ~flycheck-mode~ |
+| ~C-S-t c~  | Completion      | ~company-mode~  |

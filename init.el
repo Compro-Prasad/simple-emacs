@@ -257,7 +257,11 @@
 (use-package company
   :ensure t
   :init
-  (use-package company-jedi :ensure t)
+  (use-package company-anaconda
+    :ensure t
+    :init
+    (eval-after-load 'company
+      '(add-to-list 'company-backends '(company-anaconda :with company-capf))))
   (use-package company-tern :ensure t)
   (use-package company-irony :ensure t)
   (use-package company-web :ensure t

@@ -1,10 +1,6 @@
 (use-package elscreen
   :ensure t
-  :bind (("C-o" . elscreen-find-file)
-         ("C-n" . elscreen-find-file)
-         ("C-x C-f" . elscreen-find-file)
-         ([menu-bar file new-file] . elscreen-find-file)
-         ("C-w" . elscreen-kill-screen-and-buffers)
+  :bind (("C-w" . elscreen-kill-screen-and-buffers)
          ("<C-tab>" . elscreen-next)
          ("<C-S-tab>" . elscreen-previous)
          ("<C-iso-lefttab>" . elscreen-previous))
@@ -29,7 +25,23 @@
   (global-unset-key (kbd "M-8")) (global-set-key (kbd "M-8") 'elscreen-goto-7)
   (global-unset-key (kbd "M-9")) (global-set-key (kbd "M-9") 'elscreen-goto-8)
   (global-unset-key (kbd "M-0")) (global-set-key (kbd "M-0") 'elscreen-goto-9)
-  (elscreen-start))
+  (elscreen-start)
+
+  (defun elscreen-find-screen-by-file (filename)
+    "Find FILENAME in any of the given tabs."
+    (elscreen-find-screen-by-buffer
+     (buffer-name (find-file-noselect filename nil nil nil))))
+
+  (defadvice find-file (before find-file-new-tab first activate)
+    "Open a new tab before find-file."
+    (let ((PWD default-directory)
+          (tab-no (elscreen-find-screen-by-file filename)))
+      (if tab-no
+          (elscreen-goto tab-no)
+        (elscreen-create)
+        (cd PWD))))
+  )
+
 ;; http://stackoverflow.com/questions/803812/emacs-reopen-buffers-from-last-session-on-startup
 (defvar emacs-configuration-directory
     "~/.emacs.d/"

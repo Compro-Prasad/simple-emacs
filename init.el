@@ -181,7 +181,7 @@
 (use-package helm
   :ensure t
   :bind (("M-x" . helm-M-x)
-          ("C-p" . helm-M-x)
+          ("C-S-p" . helm-M-x)
           ("C-o" . helm-find-files)
           ("C-n" . helm-find-files)
           ("C-x C-f" . helm-find-files)
@@ -254,19 +254,6 @@
   :bind (("C-=" . er/expand-region)
          ("C-+" . er/contract-region)))
 
-;; Project management
-(use-package projectile
-  :ensure t
-  :bind-keymap ("C-c p" . projectile-command-map)
-  :init
-  (use-package helm-ag :ensure t)
-  (use-package helm-projectile
-    :ensure t
-    :init
-    (helm-projectile-on))
-  :config
-  (projectile-mode 1))
-
 ;; Complete anything in Emacs
 (use-package company
   :ensure t
@@ -332,20 +319,6 @@
          ([mouse-1] . treemacs-RET-action)
          ([mouse-3] . treemacs-leftclick-action)))
 
-;; Multiple cursors is here
-(use-package multiple-cursors
-  :ensure t
-  :bind (("M-/" . mc--mark-symbol-at-point)
-         ("C-S-c" . mc/edit-lines)
-         ("M-S-<up>" . mc/mark-previous-like-this)
-         ("M-<up>" . mc/skip-to-previous-like-this)
-         ("M-S-<down>" . mc/mark-next-like-this)
-         ("M-<down>" . mc/skip-to-next-like-this)
-         ("C-;" . mc/mark-all-like-this)
-         ("M-S-<mouse-1>" . mc/add-cursor-on-click)
-         ("M-S-<mouse-2>" . mc/add-cursor-on-click)
-         ("M-S-<mouse-3>" . mc/add-cursor-on-click)))
-
 ;; Highlight diffs in buffer
 (use-package diff-hl
   :ensure t
@@ -374,27 +347,27 @@
   (spaceline-spacemacs-theme))
 
 
+(defun simple-load-file (file)
+  "Load FILE which should be written in Emacs Lisp."
+  (when (file-readable-p file)
+    (load-file file)))
+
+(defun simple-load-files (filelist)
+  "Load FILELIST which should be a list of Emacs Lisp files."
+  (dolist (file filelist)
+    (simple-load-file file)))
 
 ;; Other keybindings
-(when (file-exists-p "~/.emacs.d/other-keybinds.el")
-  (load-file "~/.emacs.d/other-keybinds.el"))
-
-;; Other configurations
-(when (file-exists-p "~/.emacs.d/other-config.el")
-  (load-file "~/.emacs.d/other-config.el"))
-
-;; tabs configurations
-(when (file-exists-p "~/.emacs.d/simple-tabs.el")
-  (load-file "~/.emacs.d/simple-tabs.el"))
-
-;; Initialize cpp
-(when (file-exists-p "~/.emacs.d/simple-cpp.el")
-  (load-file "~/.emacs.d/simple-cpp.el"))
-
-;; Initialize python
-(when (file-exists-p "~/.emacs.d/simple-python.el")
-  (load-file "~/.emacs.d/simple-python.el"))
-
+(simple-load-files
+ '(
+   "~/.emacs.d/other-config.el"
+   "~/.emacs.d/other-keybinds.el"
+   "~/.emacs.d/simple-tabs.el"
+   "~/.emacs.d/simple-multiple-cursors.el"
+   "~/.emacs.d/simple-project.el"
+   "~/.emacs.d/simple-python.el"
+   "~/.emacs.d/simple-cpp.el"
+   ))
 
 
 ;; Convert 'yes and no' to 'y and n'
@@ -418,3 +391,7 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (when (file-exists-p custom-file)
   (load custom-file))
+
+
+(provide 'init)
+;;; init.el ends here

@@ -1,6 +1,8 @@
 (use-package elscreen
   :ensure t
+  :bind-keymap ("C-t" . elscreen-map)
   :bind (("C-w" . elscreen-kill-screen-and-buffers)
+         ("<C-f4>" . elscreen-kill)
          ("<C-tab>" . elscreen-next)
          ("<C-S-tab>" . elscreen-previous)
          ("<C-iso-lefttab>" . elscreen-previous))
@@ -28,7 +30,7 @@
   (elscreen-start)
 
   (defun elscreen-find-screen-by-file (filename)
-    "Find FILENAME in any of the given tabs."
+    "Return tab number given the FILENAME. Return `nil' if not found."
     (elscreen-find-screen-by-buffer
      (buffer-name (find-file-noselect filename nil nil nil))))
 

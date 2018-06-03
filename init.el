@@ -185,7 +185,6 @@
           ("C-o" . helm-find-files)
           ("C-n" . helm-find-files)
           ("C-x C-f" . helm-find-files)
-          ("C-b" . helm-buffers-list)
           ("C-x b" . helm-mini)
           ("C-v" . helm-show-kill-ring))
   :init

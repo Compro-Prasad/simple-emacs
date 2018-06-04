@@ -11,12 +11,25 @@ before.
 
 ** Tested on GNU Emacs development build
 It is recommended that you use Emacs development build instead of normal builds.
-To install development build on ubuntu do the following:
+
+For Ubuntu:
 #+BEGIN_SRC shell :exports code
- sudo add-apt-repository ppa:ubuntu-elisp/ppa
- sudo apt-get update
- sudo apt-get install emacs-snapshot
+  sudo add-apt-repository ppa:ubuntu-elisp/ppa
+  sudo apt-get update
+  sudo apt-get install emacs-snapshot
 #+END_SRC
+
+For Arch Linux:
+#+BEGIN_SRC shell :exports code
+  pacaur -S emacs-git
+#+END_SRC
+
+For Mac OS:
+#+BEGIN_SRC shell :exports code
+  brew install emacs-mac --with-cocoa --with-xml2 --with-gnutls --with-imagemagick --with-glib --HEAD
+#+END_SRC
+
+It is better to compile from source but that is totally upto you.
 
 ** Installing =simple-emacs=
 If you have been using Emacs from before then backup your configurations:

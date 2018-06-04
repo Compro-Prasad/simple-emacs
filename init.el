@@ -28,8 +28,8 @@
 (setq-default cursor-type '(bar . 2))
 (blink-cursor-mode 1)
 
-;; turn on line numbers
-(global-linum-mode 1)
+;; turn on line numbers for prog-mode only
+(add-hook 'prog-mode-hook 'linum-mode)
 
 ;; disable toolbar mode
 ;; (tool-bar-mode 0)
@@ -149,7 +149,7 @@
 (global-auto-revert-mode t)
 
 ;; Highlight matching parenthesis
-(setq show-paren-style 'expression)
+;; (setq show-paren-style 'expression)
 (show-paren-mode t)
 
 ;; Hungrily delete whitespace
@@ -314,13 +314,16 @@
   (which-key-mode 1))
 
 ;; Sidebar
-(use-package treemacs-projectile
+(use-package treemacs
   :ensure t
   :bind (([f6] . treemacs)
-         ([f7] . treemacs-projectile)
-         :map treemacs-mode-map
-         ([mouse-1] . treemacs-RET-action)
-         ([mouse-3] . treemacs-leftclick-action)))
+         ([f7] . treemacs-projectile))
+  :init
+  (use-package treemacs-projectile :ensure t)
+  :config
+  (require 'treemacs-mode)
+  (define-key treemacs-mode-map [mouse-1] treemacs-RET-action)
+  (define-key treemacs-mode-map [mouse-3] treemacs-leftclick-action))
 
 ;; Highlight diffs in buffer
 (use-package diff-hl
@@ -343,11 +346,15 @@
     (setq undo-tree-visualizer-timestamps t)
     (setq undo-tree-visualizer-diff t)))
 
-(use-package spaceline
-  :ensure
-  :init
-  (require 'spaceline-config)
-  (spaceline-spacemacs-theme))
+;; (use-package spaceline
+;;   :ensure
+;;   :init
+;;   (require 'spaceline-config)
+;;   (spaceline-spacemacs-theme))
+;;
+;; (use-package spaceline-all-the-icons
+;;   :after spaceline
+;;   :config (spaceline-all-the-icons-theme))
 
 
 (defun simple-load-file (file)

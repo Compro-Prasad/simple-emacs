@@ -61,8 +61,8 @@ press ~C-g~ to cancel any action.
 - You can use ~up~ and ~down~ to switch between selections.
 - To get into a directory use ~right~ key on the selection.
 - To get back to previous directory use ~left~ key.
-- You can use ~TAB~ to list all possible actions on the selected candidate. Hit
-  ~TAB~ again to hide the candidates.
+- You can use ~TAB~ to list all possible actions on the selected candidate(s).
+  Hit ~TAB~ again to hide the actions.
 
 ** Multiple cursors
 Work in progress.
@@ -82,7 +82,7 @@ Work in progress.
 - You can switch tabs using ~C-TAB~ and ~C-S-TAB~.
 - To switch buffers use ~C-x C-right~ and ~C-x C-left~.
 - You can switch to any buffer in any tab.
-- You can buffers using ~C-x b~ which also shows you recently opened files.
+- You can list buffers using ~C-x b~ which also shows you recently opened files.
 
 ** Closing tabs and buffers
 - You can close tab using ~C-w~ which will also kill the buffers in the tab.
@@ -136,7 +136,7 @@ files.
 - Find definitions using ~M-.~
 - Find assignments using ~M-*~
 - Find references using ~M-r~
-- Jump back to previous location using ~M-,~
+- Jump back to previous location using =M-,=
 
 See [[https://github.com/proofit404/anaconda-mode#interactive-commands][official repository]] for more information on keybindings for
 jumping to definitions and stuff.

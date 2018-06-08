@@ -6,3 +6,4 @@ magithub
 *.eld
 /flycheck_init.el
 -
+url/

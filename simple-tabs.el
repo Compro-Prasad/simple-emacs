@@ -5,12 +5,11 @@
          ("<C-f4>" . elscreen-kill)
          ("<C-tab>" . elscreen-next)
          ("<C-S-tab>" . elscreen-previous)
-         ("<C-iso-lefttab>" . elscreen-previous)
-         :map org-mode-map
-         ("<C-tab>" . elscreen-next)
-         :map magit-mode-map
-         ("<C-tab>" . elscreen-next))
+         ("<C-iso-lefttab>" . elscreen-previous))
   :init
+  (with-eval-after-load 'org
+    (define-key org-mode-map [C-tab] 'elscreen-next))
+  (setq elscreen-tab-display-kill-screen 'right)
   (defun elscreen-goto-1 () (interactive) (elscreen-goto 1))
   (defun elscreen-goto-2 () (interactive) (elscreen-goto 2))
   (defun elscreen-goto-3 () (interactive) (elscreen-goto 3))
@@ -49,12 +48,13 @@
   )
 
 ;; http://stackoverflow.com/questions/803812/emacs-reopen-buffers-from-last-session-on-startup
-(defvar emacs-configuration-directory
-    "~/.emacs.d/"
-    "The directory where the emacs configuration files are stored.")
+(defvar emacs-configuration-directory "~/.emacs.d/"
+  "The directory where the Emacs configuration files are stored.")
+
 (defvar elscreen-tab-configuration-store-filename
   "~/.emacs.d/.cache/elscreen"
   "The file where the elscreen tab configuration is stored.")
+
 (defun elscreen-store ()
     "Store the elscreen tab configuration."
     (interactive)
@@ -83,7 +83,5 @@
                     (switch-to-buffer-other-window (car (cdr buffers)))
                     (setq buffers (cdr buffers)))
                 (setq screens (cdr screens))))))
-
-
 
 (elscreen-restore)

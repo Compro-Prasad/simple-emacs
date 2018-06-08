@@ -10,5 +10,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(elscreen-tab-current-screen-face ((t (:background "#292b2e" :foreground "pale goldenrod" :overline "lawn green" :height 1.0 :family "roboto-sans"))))
+ '(elscreen-tab-other-screen-face ((t (:background "Gray85" :foreground "Gray50" :height 1.3 :family "roboto-sans"))))
  '(flycheck-error ((((class color)) (:underline "Red"))))
  '(flycheck-warning ((((class color)) (:underline "OrangeRed")))))

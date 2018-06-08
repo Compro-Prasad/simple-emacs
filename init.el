@@ -5,7 +5,8 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 
 
-(package-initialize)
+(when (< emacs-major-version 27)
+  (package-initialize))
 
 
 ;; Install use-package
@@ -227,6 +228,8 @@
   :init
   (use-package magithub :ensure t)
   (use-package magit-gitflow :ensure t)
+  (with-eval-after-load 'elscreen
+    (define-key magit-mode-map [C-tab] 'elscreen-next))
   :config
   (setq magit-diff-highlight-trailing t
         magit-diff-paint-whitespace t
@@ -320,10 +323,8 @@
          ([f7] . treemacs-projectile))
   :init
   (use-package treemacs-projectile :ensure t)
-  :config
-  (require 'treemacs-mode)
-  (define-key treemacs-mode-map [mouse-1] treemacs-RET-action)
-  (define-key treemacs-mode-map [mouse-3] treemacs-leftclick-action))
+  (define-key treemacs-mode-map [mouse-1] 'treemacs-RET-action)
+  (define-key treemacs-mode-map [mouse-3] 'treemacs-leftclick-action))
 
 ;; Highlight diffs in buffer
 (use-package diff-hl

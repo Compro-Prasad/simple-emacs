@@ -1466,7 +1466,11 @@ Use \\[toggle-read-only] to permit editing."
      'other 'other)
 
     (when elscreen-display-tab
-      (let ((screen-list (sort (elscreen-get-screen-list) '<))
+      (let ((screen-list
+             (let ((temp-list (sort (elscreen-get-screen-list) '<)))
+               (if (= (car temp-list) 0)
+                   (setq temp-list (nconc (cdr temp-list) '(0)))
+                 temp-list)))
             (screen-to-name-alist (elscreen-get-screen-to-name-alist))
             (current-screen (elscreen-get-current-screen))
             (half-space (propertize

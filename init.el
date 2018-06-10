@@ -62,6 +62,9 @@
 
 ;; Internal Emacs configurations
 
+;; Always load fresh .el files over byte-compiled ones
+(setq load-prefer-newer t)
+
 ;; Decrease frequency of GC
 (setq gc-cons-threshold 10000000)
 

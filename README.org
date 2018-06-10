@@ -9,6 +9,17 @@ this beast into a puppy that you will love using. If the puppy gets harsh on you
 then open an [[https://github.com/Compro-Prasad/simple-emacs/issues][issue]] or send a [[https://github.com/Compro-Prasad/simple-emacs/pulls][pull request]] so that the beast becomes nicer than
 before.
 
+** Target users
+This configuration is targeted towards new users who have been using modern
+editors like Sublime Text and want to see the power of Emacs.
+
+If you are a Vim user then you might want to checkout [[https://spacemacs.org][Spacemacs]] which has
+everything setup top to bottom for Vim experience in Emacs.
+
+If you are a power user and you want to squeeze out every functionality out of
+Emacs then you should go with [[https://spacemacs.org][Spacemacs]] which has far better support for
+grouping buffers and different window configurations.
+
 ** Tested on GNU Emacs development build
 It is recommended that you use Emacs development build instead of normal builds.
 
@@ -130,16 +141,18 @@ To make Emacs a Python IDE, you need to have anaconda_mode installed:
 sudo pip2 install anaconda_mode   # For python2
 sudo pip3 install anaconda_mode   # For python3
 #+END_SRC
-This will enable syntax checking and symbol completion for python
-files.
+This will enable syntax checking and symbol completion for python files.
 
 - Find definitions using ~M-.~
 - Find assignments using ~M-*~
 - Find references using ~M-r~
-- Jump back to previous location using =M-,=
+- Jump back to previous location using ~M-,~
+- Activate virtual environment using ~M-x pyvenv-activate~. Enter root directory
+  of the virtual environment as input.
+- If you are using ~pipenv~ then you can easily do ~M-x pipenv-activate~.
 
-See [[https://github.com/proofit404/anaconda-mode#interactive-commands][official repository]] for more information on keybindings for
-jumping to definitions and stuff.
+See [[https://github.com/proofit404/anaconda-mode#interactive-commands][official repository]] for more information on keybindings for jumping to
+definitions and stuff.
 
 ** Toggling features
 | Keybinding | Feature         | Function        |

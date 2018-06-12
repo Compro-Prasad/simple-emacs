@@ -1,0 +1,6 @@
+alias atom find-file $1
+alias vi find-file $1
+alias vim find-file $1
+alias emacs find-file $1
+alias subl find-file $1
+alias e find-file $1

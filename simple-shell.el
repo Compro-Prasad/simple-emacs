@@ -13,7 +13,9 @@
    '(shell-pop-universal-key "C-'")
    '(shell-pop-window-size 30)
    '(shell-pop-full-span t)
-   '(shell-pop-window-position "bottom")))
+   '(shell-pop-window-position "bottom"))
+  (add-hook 'org-mode-hook (lambda ()
+                            (define-key org-mode-map (kbd "C-'") 'shell-pop))))
 
 (use-package eshell-did-you-mean
   :ensure t
@@ -31,19 +33,24 @@
   :init
   (eshell-git-prompt-use-theme 'powerline))
 
+(defun simple-emacs/init-eshell ()
+  "Initialize shell"
+  ;; This is an eshell alias
+  (defun eshell/clear ()
+    (let ((inhibit-read-only t))
+      (erase-buffer)))
+  ;; This is a key-command
+  (defun simple-emacs/eshell-clear-keystroke ()
+    "Allow for keystrokes to invoke eshell/clear"
+    (interactive)
+    (eshell/clear)
+    (eshell-send-input))
+  ;; Caution! this will erase buffer's content at C-l
+  (define-key eshell-mode-map (kbd "C-l") 'simple-emacs/eshell-clear-keystroke)
+  (define-key eshell-mode-map (kbd "C-d") 'eshell-delchar-or-maybe-eof))
 
-(defun clear-buffer (func)
-  "Execute FUNC after clearing buffer."
-  (let ((inhibit-read-only t))
-    (erase-buffer)
-    (funcall func)))
 
-(defun eshell-clear-buffer ()
-  "Clear terminal."
-  (interactive)
-  (clear-buffer 'eshell-send-input))
-
-(define-key 'eshell-mode-map (kbd "C-l") 'eshell-clear-buffer)
+(add-hook 'eshell-mode-hook 'simple-emacs/init-eshell)
 
 
 (provide 'simple-shell)

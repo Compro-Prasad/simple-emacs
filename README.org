@@ -103,9 +103,9 @@ Work in progress.
 ** Searching
 - ~C-f~ does forward search
 - ~C-S-f~ does backward search
-- ~C-r~ searches in a Git project. If it is not a Git repository then
-  directory is asked first. For it to work in absence of git project
-  install [[https://github.com/ggreer/the_silver_searcher][the_silver_searcher]]:
+- ~C-r~ searches in a Git project. If it is not a Git repository then directory
+  is asked first. For it to work in absence of git project install
+  [[https://github.com/ggreer/the_silver_searcher][the_silver_searcher]]:
 
 Ubuntu:
 #+BEGIN_SRC shell :exports code
@@ -115,6 +115,14 @@ Arch Linux:
 #+BEGIN_SRC shell :exports code
 sudo pacman -S the_silver_searcher
 #+END_SRC
+
+** Shell
+- There are three shells in Emacs: ~shell~, ~eshell~ and ~term~
+- Default shell is ~eshell~
+- Use ~C-l~ to clear eshell buffer
+- Pop up, switch or close shell using ~C-'~
+- In Eshell, type use-theme to list and preview available themes
+- To customize shell behaviour look into ~simple-shell.el~
 
 ** C/C++ setup
 Install clang++ on your distro for better experience.

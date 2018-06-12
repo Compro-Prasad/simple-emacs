@@ -1,5 +1,6 @@
 (use-package elscreen
   :ensure t
+  :defer t
   :bind-keymap ("C-t" . elscreen-map)
   :bind (("C-w" . elscreen-kill-screen-and-buffers)
          ("<C-f4>" . elscreen-kill)

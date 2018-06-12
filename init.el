@@ -154,6 +154,7 @@
 
 ;; List identifiers through a right click
 (use-package imenu
+  :defer t
   :bind ("<C-S-mouse-1>" . imenu))
 
 ;; Auto revert externally edited files
@@ -166,6 +167,7 @@
 ;; Hungrily delete whitespace
 (use-package hungry-delete
   :ensure t
+  :defer t
   :init
   (global-hungry-delete-mode 1))
 
@@ -191,6 +193,7 @@
 ;; Auto completion for Emacs lists
 (use-package helm
   :ensure t
+  :defer t
   :bind (("M-x" . helm-M-x)
           ("C-S-p" . helm-M-x)
           ("C-o" . helm-find-files)
@@ -215,6 +218,7 @@
 ;; Syntax checking
 (use-package flycheck
   :ensure t
+  :defer t
   :hook (prog-mode . flycheck-mode)
   :config
   (setq flycheck-highlighting-mode 'lines)
@@ -228,19 +232,21 @@
 ;; Clang analyzer
 (use-package flycheck-clang-analyzer
   :ensure t
+  :defer t
   :config
   (flycheck-clang-analyzer-setup))
 
 ;; Git integration
 (use-package magit
   :ensure t
+  :defer t
   :bind ("C-x g" . 'magit-status)
   :init
-  (use-package magithub :ensure t)
-  (use-package magit-gitflow :ensure t)
+  (use-package magithub :ensure t :defer t)
+  (use-package magit-gitflow :ensure t :defer t)
+  :config
   (with-eval-after-load 'elscreen
     (define-key magit-mode-map [C-tab] 'elscreen-next))
-  :config
   (setq magit-diff-highlight-trailing t
         magit-diff-paint-whitespace t
         magit-diff-highlight-hunk-body t
@@ -253,16 +259,19 @@
   :init
   (use-package simple-httpd
     :ensure t
+    :defer t
     :init
     (httpd-start))
   (use-package impatient-mode
     :ensure t
+    :defer t
     :init
     (add-hook 'web-mode-hook 'impatient-mode)))
 
 ;; Smart select regions
 (use-package expand-region
   :ensure t
+  :defer t
   :bind (("C-=" . er/expand-region)
          ("C-+" . er/contract-region)))
 
@@ -303,6 +312,7 @@
 ;; Better window switching
 (use-package switch-window
   :ensure t
+  :defer t
   :bind
   (("M-\\" . switch-window)
    ("C-x 1" . switch-window-then-maximize)
@@ -323,22 +333,25 @@
 ;; Auto complete shortcuts
 (use-package which-key
   :ensure t
+  :defer t
   :init
   (which-key-mode 1))
 
 ;; Sidebar
 (use-package treemacs
   :ensure t
+  :defer t
   :bind (([f6] . treemacs)
          ([f7] . treemacs-projectile))
   :init
-  (use-package treemacs-projectile :ensure t)
+  (use-package treemacs-projectile :ensure t :defer t)
+  :config
   (define-key treemacs-mode-map [mouse-1] 'treemacs-RET-action)
   (define-key treemacs-mode-map [mouse-3] 'treemacs-leftclick-action))
 
 ;; Highlight diffs in buffer
 (use-package diff-hl
-  :ensure t
+  :ensure t :defer t
   :hook (prog-mode . diff-hl-mode)
   :init (progn
           (setq diff-hl-side 'right)
@@ -356,16 +369,6 @@
     (global-undo-tree-mode)
     (setq undo-tree-visualizer-timestamps t)
     (setq undo-tree-visualizer-diff t)))
-
-;; (use-package spaceline
-;;   :ensure
-;;   :init
-;;   (require 'spaceline-config)
-;;   (spaceline-spacemacs-theme))
-;;
-;; (use-package spaceline-all-the-icons
-;;   :after spaceline
-;;   :config (spaceline-all-the-icons-theme))
 
 
 (defun simple-load-file (file)

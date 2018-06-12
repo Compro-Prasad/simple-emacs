@@ -20,47 +20,13 @@
 
 
 
-;; UI confgurations
-
-;; Better right click
-(define-key global-map [mouse-3] menu-bar-edit-menu)
-
-;; cursor type
-(setq-default cursor-type '(bar . 2))
-(blink-cursor-mode 1)
-
-;; turn on line numbers for prog-mode only
-(add-hook 'prog-mode-hook 'linum-mode)
-
-;; disable toolbar mode
-;; (tool-bar-mode 0)
-
-;; Highlight current line
-(global-hl-line-mode 1)
-
-;; Maximize current frame
-(toggle-frame-maximized)
-
-;; Startup message
-(defun display-startup-echo-area-message ()
-  (message "Let the hacking begin!"))
-
-;; Better buffer naming style
-(setq uniquify-buffer-name-style 'forward)
-
-;; Scroll preserving screen position
-(setq scroll-preserve-screen-position 'always)
-
-;; Theme
-(setq custom-safe-themes t)     ;; Themes are generally safe
-(use-package spacemacs-common
-    :ensure spacemacs-theme
-    :config (load-theme 'spacemacs-dark t))
-
-
-
-
 ;; Internal Emacs configurations
+
+;; Increase stack size
+(setq max-specpdl-size 32000)
+
+;; Increase depth of eval
+(setq max-lisp-eval-depth 2048)
 
 ;; Always load fresh .el files over byte-compiled ones
 (setq load-prefer-newer t)
@@ -111,6 +77,47 @@
 (setq vc-make-backup-files t)
 (setq auto-save-file-name-transforms '((".*" "~/.emacs.d/.cache/auto-save-list/" t)))
 
+
+
+
+
+;; UI configurations
+
+;; Better right click
+(define-key global-map [mouse-3] menu-bar-edit-menu)
+
+;; cursor type
+(setq-default cursor-type '(bar . 2))
+(blink-cursor-mode 1)
+
+;; turn on line numbers for prog-mode only
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+
+;; disable toolbar mode
+;; (tool-bar-mode 0)
+
+;; Highlight current line
+(add-hook 'prog-mode-hook 'hl-line-mode)
+
+;; Maximize current frame
+(toggle-frame-maximized)
+
+;; Startup message
+(defun display-startup-echo-area-message ()
+  (message "Let the hacking begin!"))
+
+;; Better buffer naming style
+(setq uniquify-buffer-name-style 'forward)
+
+;; Scroll preserving screen position
+(setq scroll-preserve-screen-position 'always)
+
+;; Theme
+(setq custom-safe-themes t)     ;; Themes are generally safe
+(use-package monokai-theme
+  :ensure monokai-theme
+  :defer t
+  :init (load-theme 'monokai t))
 
 
 

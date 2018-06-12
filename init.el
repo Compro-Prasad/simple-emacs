@@ -391,6 +391,7 @@
    "~/.emacs.d/simple-project.el"
    "~/.emacs.d/simple-python.el"
    "~/.emacs.d/simple-cpp.el"
+   "~/.emacs.d/simple-shell.el"
    ))
 
 

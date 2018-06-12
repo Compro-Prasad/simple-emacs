@@ -13,7 +13,7 @@
 (global-set-key (kbd "C-w") 'kill-buffer)
 
 (global-unset-key (kbd "C-t"))
-(global-set-key (kbd "C-S-t l") 'linum-mode)
+(global-set-key (kbd "C-S-t l") 'display-line-numbers-mode)
 (global-set-key (kbd "C-S-t m") 'menu-bar-mode)
 (global-set-key (kbd "C-S-t t") 'tool-bar-mode)
 (global-set-key (kbd "C-S-t s") 'flycheck-mode)

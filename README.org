@@ -96,9 +96,8 @@ Work in progress.
 - You can list buffers using ~C-x b~ which also shows you recently opened files.
 
 ** Closing tabs and buffers
-- You can close tab using ~C-w~ which will also kill the buffers in the tab.
-- To close the tab but not the buffer you may try ~C-f4~.
-- To kill the buffer but not the tab you can use ~C-x k~.
+Closing a tab is analogous to closing a buffer. You can close a buffer using
+~C-w~ and current tab/buffer using ~C-f4~.
 
 ** Searching
 - ~C-f~ does forward search

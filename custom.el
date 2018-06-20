@@ -17,7 +17,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(elscreen-tab-current-screen-face ((t (:background "#28292a" :foreground "gold" :height 1.0 :foundry "roboto" :family "sans"))))
- '(elscreen-tab-other-screen-face ((t (:background "Gray85" :foreground "Gray50" :height 1.3 :family "roboto-sans"))))
  '(flycheck-error ((((class color)) (:underline "Red"))))
- '(flycheck-warning ((((class color)) (:underline "OrangeRed")))))
+ '(flycheck-warning ((((class color)) (:underline "OrangeRed"))))
+ '(tabbar-highlight ((t (:background "#272822"))))
+ '(tabbar-selected ((t (:inherit nil :stipple nil :background "#272822" :foreground "#F8F8F2" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 150 :width normal :family "Sans Serif"))))
+ '(tabbar-selected-modified ((t (:inherit tabbar-default :background "#272822" :foreground "tomato" :box nil :height 150 :family "Sans Serif"))))
+ '(tabbar-unselected ((t (:inherit tabbar-selected :background "#444" :foreground "#aaa" :height 160))))
+ '(tabbar-unselected-modified ((t (:inherit tabbar-selected-modified :background "#444")))))

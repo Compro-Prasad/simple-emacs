@@ -36,7 +36,7 @@
   (global-unset-key (kbd "M-8")) (global-set-key (kbd "M-8") 'elscreen-goto-8)
   (global-unset-key (kbd "M-9")) (global-set-key (kbd "M-9") 'elscreen-goto-9)
   (global-unset-key (kbd "M-0")) (global-set-key (kbd "M-0") 'elscreen-goto-0)
-  (elscreen-start)
+  ;; (elscreen-start)
 
   (defun elscreen-find-screen-by-file (filename)
     "Return tab number given the FILENAME. Return `nil' if not found."
@@ -90,4 +90,4 @@
                     (setq buffers (cdr buffers)))
                 (setq screens (cdr screens))))))
 
-(elscreen-restore)
+;; (elscreen-restore)

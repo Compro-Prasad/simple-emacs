@@ -5,11 +5,11 @@
   (with-eval-after-load 'winum
     (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
   (defun simple-emacs/switch-to-sidebar ()
+    "Switch to side bar."
     (interactive)
-    (let ((project (projectile-project-p)))
-      (if project
-          (treemacs--init project)
-        (treemacs--init default-directory))))
+    ;;(if (projectile-project-p)
+     ;;   (treemacs--init (projectile-project-name))
+    (treemacs--init default-directory))
   :config
   (progn
     (global-set-key [C-m] 'treemacs-delete-other-windows)
@@ -70,6 +70,4 @@
     "Open project."
     (interactive)
     (treemacs--init (x-file-dialog "Project Directory" default-directory "" t t)))
-  (define-key global-map [menu-bar file open-project] '("Open Project" . simple-emacs/open-project))
-  :config
-  (define-key projectile-mode-map (kbd "C-p o") 'treemacs-projectile))
+  (define-key global-map [menu-bar file open-project] '("Open Project" . simple-emacs/open-project)))

@@ -4,12 +4,20 @@
   :init
   (with-eval-after-load 'winum
     (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
+  (defun simple-emacs/switch-to-sidebar ()
+    (interactive)
+    (let ((project (projectile-project-p)))
+      (if project
+          (treemacs--init project)
+        (treemacs--init default-directory))))
   :config
   (progn
     (global-set-key [C-m] 'treemacs-delete-other-windows)
-    (global-set-key [\C-x 1] 'treemacs-delete-other-windows)
+    (global-set-key (kbd "C-x 1") 'treemacs-delete-other-windows)
     (define-key treemacs-mode-map [mouse-1] 'treemacs-RET-action)
     (define-key treemacs-mode-map [mouse-3] 'treemacs-leftclick-action)
+    (global-set-key (kbd "C-b") 'simple-emacs/switch-to-sidebar)
+    (global-set-key (kbd "C-S-b") 'treemacs)
     (setq treemacs-collapse-dirs              (if (executable-find "python") 3 0)
           treemacs-file-event-delay           5000
           treemacs-follow-after-init          t
@@ -54,5 +62,14 @@
         ("C-x t M-t" . treemacs-find-tag)))
 
 (use-package treemacs-projectile
-  :after treemacs projectile
-  :ensure t)
+  :after projectile
+  :ensure t
+  :init
+  (require 'treemacs)
+  (defun simple-emacs/open-project ()
+    "Open project."
+    (interactive)
+    (treemacs--init (x-file-dialog "Project Directory" default-directory "" t t)))
+  (define-key global-map [menu-bar file open-project] '("Open Project" . simple-emacs/open-project))
+  :config
+  (define-key projectile-mode-map (kbd "C-p o") 'treemacs-projectile))

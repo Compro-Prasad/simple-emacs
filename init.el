@@ -22,6 +22,9 @@
 
 ;; Internal Emacs configurations
 
+;; Don't use C-m for RET
+(define-key input-decode-map [?\C-m] [C-m])
+
 ;; Increase stack size
 (setq max-specpdl-size 32000)
 
@@ -82,6 +85,10 @@
 
 
 ;; UI configurations
+
+;; scroll one line at a time
+(setq scroll-step            1
+      scroll-conservatively  10000)
 
 ;; Better right click
 (define-key global-map [mouse-3] menu-bar-edit-menu)
@@ -337,18 +344,6 @@
   :init
   (which-key-mode 1))
 
-;; Sidebar
-(use-package treemacs
-  :ensure t
-  :defer t
-  :bind (([f6] . treemacs)
-         ([f7] . treemacs-projectile))
-  :init
-  (use-package treemacs-projectile :ensure t :defer t)
-  :config
-  (define-key treemacs-mode-map [mouse-1] 'treemacs-RET-action)
-  (define-key treemacs-mode-map [mouse-3] 'treemacs-leftclick-action))
-
 ;; Highlight diffs in buffer
 (use-package diff-hl
   :ensure t :defer t
@@ -387,6 +382,7 @@
    "~/.emacs.d/other-config.el"
    "~/.emacs.d/other-keybinds.el"
    "~/.emacs.d/simple-tabs.el"
+   "~/.emacs.d/simple-sidebar.el"
    "~/.emacs.d/simple-multiple-cursors.el"
    "~/.emacs.d/simple-project.el"
    "~/.emacs.d/simple-python.el"

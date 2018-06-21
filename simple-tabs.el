@@ -4,15 +4,23 @@
   :init
   (setq tabbar-ruler-global-tabbar t)
   (require 'tabbar-ruler)
-  (defun simple-emacs/set-tab-keys ()
-    "Set keys for tabs."
-    (global-set-key [C-tab] 'tabbar-forward-tab)
-    (global-set-key [C-S-tab] 'tabbar-backward-tab)
-    (global-set-key [C-S-iso-lefttab] 'tabbar-backward-tab)
-    (global-set-key [C-f4] 'kill-current-buffer))
-  (simple-emacs/set-tab-keys)
-  (add-hook 'org-mode-hook 'simple-emacs/set-tab-keys)
-  (add-hook 'magit-mode-hook 'simple-emacs/set-tab-keys)
+  (global-set-key [C-tab] 'tabbar-forward-tab)
+  (global-set-key [C-S-tab] 'tabbar-backward-tab)
+  (global-set-key [C-S-iso-lefttab] 'tabbar-backward-tab)
+  (global-set-key [C-f4] 'kill-current-buffer)
+  (eval-after-load 'org-mode
+    (progn
+      (require 'org)
+      (define-key org-mode-map [C-tab] 'tabbar-forward-tab)
+      (define-key org-mode-map [C-S-tab] 'tabbar-backward-tab)
+      (define-key org-mode-map [C-S-iso-lefttab] 'tabbar-backward-tab)
+      (define-key org-mode-map [C-f4] 'kill-current-buffer)))
+  (eval-after-load "magit-mode"
+    (progn
+      (define-key magit-mode-map [C-tab] 'tabbar-forward-tab)
+      (define-key magit-mode-map [C-S-tab] 'tabbar-backward-tab)
+      (define-key magit-mode-map [C-S-iso-lefttab] 'tabbar-backward-tab)
+      (define-key magit-mode-map [C-f4] 'kill-current-buffer)))
   :config
   (tabbar-ruler-group-by-projectile-project)
   (custom-set-faces

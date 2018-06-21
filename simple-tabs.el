@@ -8,14 +8,13 @@
   (global-set-key [C-S-tab] 'tabbar-backward-tab)
   (global-set-key [C-S-iso-lefttab] 'tabbar-backward-tab)
   (global-set-key [C-f4] 'kill-current-buffer)
-  (eval-after-load 'org-mode
+  (with-eval-after-load 'org
     (progn
-      (require 'org)
       (define-key org-mode-map [C-tab] 'tabbar-forward-tab)
       (define-key org-mode-map [C-S-tab] 'tabbar-backward-tab)
       (define-key org-mode-map [C-S-iso-lefttab] 'tabbar-backward-tab)
       (define-key org-mode-map [C-f4] 'kill-current-buffer)))
-  (eval-after-load "magit-mode"
+  (with-eval-after-load 'magit
     (progn
       (define-key magit-mode-map [C-tab] 'tabbar-forward-tab)
       (define-key magit-mode-map [C-S-tab] 'tabbar-backward-tab)

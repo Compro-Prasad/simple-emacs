@@ -25,7 +25,7 @@
 (defun simple-emacs/open-existing-file ()
   "Open an existing file from file chooser."
   (interactive)
-  (find-file (x-file-dialog "Open file" default-directory "" t)))
+  (find-file (x-file-dialog "Open file" default-directory "")))
 (global-set-key (kbd "C-o") 'simple-emacs/open-existing-file)
 
 ;; Open a new file using C-n

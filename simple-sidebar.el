@@ -5,7 +5,6 @@
   (with-eval-after-load 'winum
     (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
   (global-set-key [left-fringe mouse-1] 'treemacs)
-  (define-key treemacs-mode-map [right-fringe mouse-1] 'treemacs)
   (defun simple-emacs/switch-to-sidebar ()
     "Switch to side bar."
     (interactive)
@@ -14,6 +13,7 @@
     (treemacs--init default-directory))
   :config
   (progn
+    (define-key treemacs-mode-map [right-fringe mouse-1] 'treemacs)
     (global-set-key [C-m] 'treemacs-delete-other-windows)
     (global-set-key (kbd "C-x 1") 'treemacs-delete-other-windows)
     (define-key treemacs-mode-map [mouse-1] 'treemacs-RET-action)

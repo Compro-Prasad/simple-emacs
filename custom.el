@@ -11,7 +11,8 @@
  '(shell-pop-term-shell "/bin/bash")
  '(shell-pop-universal-key "C-'")
  '(shell-pop-window-position "bottom")
- '(shell-pop-window-size 30))
+ '(shell-pop-window-size 30)
+ '(undo-tree-history-directory-alist '(("." . "~/.emacs.d/.cache/undo-backup"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -353,15 +353,20 @@
 ;; undo tree
 (use-package undo-tree
   :ensure t :defer t
+  :bind (("C-z" . undo-tree-undo)
+         ("C-S-z" . undo-tree-redo)
+         ("C-/" . undo-tree-visualize)
+         :map undo-tree-map
+         ("C-/" . undo-tree-visualize))
   :init (global-undo-tree-mode 1)
-  :bind (("C-z" . undo)
-         ("C-S-z" . undo-tree-visualize))
   :config
   (progn
-    (defalias 'redo 'undo-tree-visualize)
-    (global-undo-tree-mode)
     (setq undo-tree-visualizer-timestamps t)
-    (setq undo-tree-visualizer-diff t)))
+    (setq undo-tree-visualizer-diff t)
+    (setq undo-tree-auto-save-history 1)
+    (shell-command "mkdir ~/.emacs.d/.cache/undo-backup -p" nil nil)
+    (custom-set-variables '(undo-tree-history-directory-alist '(("." . "~/.emacs.d/.cache/undo-backup"))))
+    ))
 
 
 (defun simple-load-file (file)

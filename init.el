@@ -224,7 +224,6 @@
 (use-package flycheck
   :ensure t
   :defer t
-  :hook (prog-mode . flycheck-mode)
   :config
   (setq flycheck-highlighting-mode 'lines)
   (custom-set-faces

@@ -8,9 +8,10 @@
   (defun simple-emacs/switch-to-sidebar ()
     "Switch to side bar."
     (interactive)
-    ;;(if (projectile-project-p)
-     ;;   (treemacs--init (projectile-project-name))
-    (treemacs--init default-directory))
+    (let ((project-dir (projectile-project-p)))
+      (if project-dir
+          (treemacs--init project-dir)
+        (treemacs--init default-directory))))
   :config
   (progn
     (define-key treemacs-mode-map [right-fringe mouse-1] 'treemacs)
@@ -25,18 +26,18 @@
           treemacs-follow-after-init          t
           treemacs-follow-recenter-distance   0.1
           treemacs-goto-tag-strategy          'refetch-index
-          treemacs-indentation                2
+          treemacs-indentation                1
           treemacs-indentation-string         " "
-          treemacs-is-never-other-window      nil
+          treemacs-is-never-other-window      t
           treemacs-no-png-images              nil
           treemacs-project-follow-cleanup     nil
           treemacs-persist-file               (expand-file-name ".cache/treemacs-persist" user-emacs-directory)
           treemacs-recenter-after-file-follow nil
           treemacs-recenter-after-tag-follow  nil
-          treemacs-show-hidden-files          t
-          treemacs-silent-filewatch           nil
-          treemacs-silent-refresh             nil
-          treemacs-sorting                    'alphabetic-desc
+          treemacs-show-hidden-files          nil
+          treemacs-silent-filewatch           t
+          treemacs-silent-refresh             t
+          treemacs-sorting                    'alphabetic-case-insensitive-asc
           treemacs-space-between-root-nodes   t
           treemacs-tag-follow-cleanup         t
           treemacs-tag-follow-delay           1.5

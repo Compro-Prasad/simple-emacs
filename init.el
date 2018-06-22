@@ -203,8 +203,6 @@
   :defer t
   :bind (("M-x" . helm-M-x)
           ("C-S-p" . helm-M-x)
-          ("C-o" . helm-find-files)
-          ("C-n" . helm-find-files)
           ("C-x C-f" . helm-find-files)
           ("C-x b" . helm-mini)
           ("C-S-v" . helm-show-kill-ring))

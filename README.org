@@ -71,8 +71,11 @@ press ~C-g~ to cancel any action.
 - Press ~C-o~ to open or create a file.
 - Use native ~C-x C-f~ to do any of the above but using Helm interface.
 - *File > Open project* opens project in sidebar.
-- Clicking on extreme left of window toggles sidebar. ~C-x t t~ is the keyboard
-  shortcut.
+- Clicking on extreme left of window toggles sidebar.
+- Using ~C-b~ to toggle sidebar is very useful but tricky. It might
+  ask for user input in minibuffer.
+- ~C-S-b~ toggles sidebar if you had it open before else it will ask
+  you the directory in a Helm completion to show the sidebar.
 
 ** Multiple cursors
 Work in progress.

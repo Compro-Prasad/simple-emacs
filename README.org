@@ -82,18 +82,18 @@ Work in progress.
 | Create cursor with mouse  | ~M-S-click~ |
 
 ** Undo and Redo
-- To undo a change press ~C-z~ or ~C-/~.
-- There is no redo in Emacs, so when you use ~C-S-z~ it will open *undo tree*
-  where you can navigate the undo history using ~up~ and ~down~ keys. To switch
-  to different undo branch use ~left~ and ~right~ keys. To quit this state just
-  press ~q~.
+- To undo a change press ~C-z~.
+- To redo changes press ~C-S-z~.
+- If the undo/redo is confusing you then press ~C-/~ to visualize undo tree. Use
+  ~q~ to close the tree.
+- Undo history is saved throughout sessions.
 
 ** Switching tabs and buffers
 - You can switch tabs using ~C-TAB~ and ~C-S-TAB~.
 - To switch buffers use ~C-x C-right~ and ~C-x C-left~.
 - Each buffer is assigned to an unique tab.
 - ~C-x b~ lists all buffers in current session.
-- Tabs grouped by projects. Use ~-~ in top left corner to switch projects.
+- Tabs are grouped by projects. Use ~-~ in top left corner to switch projects.
 
 ** Closing tabs
 - Closing a tab is analogous to closing a buffer.

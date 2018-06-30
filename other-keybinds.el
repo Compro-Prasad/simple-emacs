@@ -12,13 +12,15 @@
 (global-set-key (kbd "C-w") 'kill-buffer)
 
 (global-unset-key (kbd "C-t"))
-(global-set-key (kbd "C-S-t l") 'display-line-numbers-mode)
-(global-set-key (kbd "C-S-t m") 'menu-bar-mode)
-(global-set-key (kbd "C-S-t t") 'tool-bar-mode)
-(global-set-key (kbd "C-S-t s") 'flycheck-mode)
-(global-set-key (kbd "C-S-t c") 'company-mode)
-
-(global-set-key (kbd "M-ESC") 'keyboard-quit)
+(bind-keys
+ ;; Some toggles
+ ("C-S-t l" . display-line-numbers-mode)
+ ("C-S-t m" . menu-bar-mode)
+ ("C-S-t t" . tool-bar-mode)
+ ("C-S-t s" . flycheck-mode)
+ ("C-S-t c" . company-mode)
+ ;; Manage escaping out of errors
+ ([escape] . keyboard-escape-quit))
 
 ;; Open existing file using C-o
 (defun simple-emacs/open-existing-file ()

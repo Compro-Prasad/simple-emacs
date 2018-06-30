@@ -5,10 +5,12 @@
 (define-key isearch-mode-map [return] 'isearch-repeat-forward)
 (define-key isearch-mode-map (kbd "\r") 'isearch-repeat-forward)
 (define-key isearch-mode-map [S-return] 'isearch-repeat-backward)
-(define-key isearch-mode-map (kbd "ESC") 'isearch-exit)
+(define-key isearch-mode-map [escape] 'isearch-exit)
+(define-key isearch-mode-map "\e" 'isearch-exit)
 (global-set-key (kbd "C-s") 'save-buffer)
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
 (global-set-key (kbd "C-q") 'save-buffers-kill-emacs)
+(global-set-key (kbd "C-y") 'quoted-insert)
 (global-set-key (kbd "C-w") 'kill-buffer)
 
 (global-unset-key (kbd "C-t"))

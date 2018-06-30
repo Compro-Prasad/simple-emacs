@@ -31,7 +31,7 @@
           treemacs-is-never-other-window      t
           treemacs-no-png-images              nil
           treemacs-project-follow-cleanup     nil
-          treemacs-persist-file               (expand-file-name ".cache/treemacs-persist" user-emacs-directory)
+          treemacs-persist-file               (concat simple-emacs/cache-dir "treemacs-persist")
           treemacs-recenter-after-file-follow nil
           treemacs-recenter-after-tag-follow  nil
           treemacs-show-hidden-files          nil

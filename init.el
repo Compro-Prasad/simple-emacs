@@ -1,4 +1,5 @@
 (require 'package)
+(require 'f)
 
 (setq package-enable-at-startup nil)
 
@@ -18,12 +19,26 @@
 
 
 
+;; Setup cache directory
+(f-mkdir user-emacs-directory ".cache")
+(defvar simple-emacs/cache-dir
+  (concat user-emacs-directory ".cache/")
+  "The location where simple-emacs stores the .cache files.")
+(f-mkdir simple-emacs/cache-dir "auto-save-list/")
+(f-mkdir simple-emacs/cache-dir "backups/")
+(f-mkdir simple-emacs/cache-dir "desktop/")
+
+
 
 
 ;; Internal Emacs configurations
 
 ;; Don't use C-m for RET
 (define-key input-decode-map [?\C-m] [C-m])
+
+
+;; Convert 'yes and no' to 'y and n'
+(fset 'yes-or-no-p 'y-or-n-p)
 
 ;; Increase stack size
 (setq max-specpdl-size 32000)
@@ -43,14 +58,12 @@
 ;; Fixes some TLS connections
 (setq gnutls-min-prime-bits 4096)
 
-;; Saving history
-(shell-command "mkdir ~/.emacs.d/.cache -p" nil nil)
 (setq recentf-max-saved-items 512
       history-length t
       history-delete-duplicates t
-      recentf-save-file "~/.emacs.d/.cache/recentf"
-      savehist-file "~/.emacs.d/.cache/savehist"
-      save-place-file "~/.emacs.d/.cache/saveplace"
+      recentf-save-file (concat simple-emacs/cache-dir "recentf")
+      savehist-file     (concat simple-emacs/cache-dir "savehist")
+      save-place-file   (concat simple-emacs/cache-dir "saveplace")
       savehist-additional-variables
       '(kill-ring
         search-ring
@@ -60,8 +73,7 @@
 (savehist-mode 1)
 
 ;; Automatically save and restore sessions
-(shell-command "mkdir ~/.emacs.d/.cache/desktop -p" nil nil)
-(setq desktop-dirname             "~/.emacs.d/.cache/desktop/"
+(setq desktop-dirname             (concat simple-emacs/cache-dir "desktop/")
       desktop-base-file-name      "emacs.desktop"
       desktop-base-lock-name      "lock"
       desktop-path                (list desktop-dirname)
@@ -72,9 +84,7 @@
 (desktop-save-mode 1)
 
 ;; Handling backups
-(shell-command "mkdir ~/.emacs.d/.cache/auto-save-list -p" nil nil)
-(shell-command "mkdir ~/.emacs.d/.cache/backups -p" nil nil)
-(setq backup-directory-alist '(("." . "~/.emacs.d/.cache/backups")))
+(setq backup-directory-alist `(("." . ,(concat simple-emacs/cache-dir "backups/"))))
 (setq delete-old-versions -1)
 (setq version-control t)
 (setq vc-make-backup-files t)
@@ -363,23 +373,25 @@
     (setq undo-tree-visualizer-timestamps t)
     (setq undo-tree-visualizer-diff t)
     (setq undo-tree-auto-save-history 1)
-    (shell-command "mkdir ~/.emacs.d/.cache/undo-backup -p" nil nil)
-    (custom-set-variables '(undo-tree-history-directory-alist '(("." . "~/.emacs.d/.cache/undo-backup"))))
-    ))
+    (f-mkdir simple-emacs/cache-dir "undo-backup")
+    (custom-set-variables
+     '(undo-tree-history-directory-alist
+       `(("." . ,(concat simple-emacs/cache-dir "undo-backup/"))))
+     )))
 
 
-(defun simple-load-file (file)
+(defun simple-emacs/load-file (file)
   "Load FILE which should be written in Emacs Lisp."
   (when (file-readable-p file)
     (load-file file)))
 
-(defun simple-load-files (filelist)
+(defun simple-emacs/load-files (filelist)
   "Load FILELIST which should be a list of Emacs Lisp files."
   (dolist (file filelist)
-    (simple-load-file file)))
+    (simple-emacs/load-file file)))
 
 ;; Other keybindings
-(simple-load-files
+(simple-emacs/load-files
  '(
    "~/.emacs.d/other-config.el"
    "~/.emacs.d/other-keybinds.el"
@@ -393,8 +405,6 @@
    ))
 
 
-;; Convert 'yes and no' to 'y and n'
-(fset 'yes-or-no-p 'y-or-n-p)
 
 
 ;; Set encoding to utf-8

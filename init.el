@@ -36,6 +36,14 @@
 ;; Don't use C-m for RET
 (define-key input-decode-map [?\C-m] [C-m])
 
+;; Don't use C-i for TAB
+(define-key input-decode-map [?\C-i] [C-i])
+
+;; Don't use C-j for \n
+(define-key input-decode-map [?\C-j] [C-j])
+
+;; Dont use C-[ for ESC
+(define-key input-decode-map [?\C-\[] (kbd "<C-[>"))
 
 ;; Convert 'yes and no' to 'y and n'
 (fset 'yes-or-no-p 'y-or-n-p)

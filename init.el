@@ -98,7 +98,8 @@
 
 ;; scroll one line at a time
 (setq scroll-step            1
-      scroll-conservatively  10000)
+      scroll-conservatively  10000
+      mouse-wheel-scroll-amount '(1 ((shift) . 1)))
 
 ;; Better right click
 (define-key global-map [mouse-3] menu-bar-edit-menu)

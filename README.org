@@ -65,6 +65,9 @@ Now open your Emacs and start doing your stuff.
 When you think you pressed the wrong key or Emacs isn't responding then you can
 press ~C-g~ to cancel any action.
 
+If that doesn't help then do ~ESC~ or ~C-]~ or ~C-x X q~ or
+~M-x top-level~.
+
 ** Files and Projects
 - Press ~C-n~ create an unsaved buffer. Use ~C-s~ to save it else it will be
   lost in the next session.

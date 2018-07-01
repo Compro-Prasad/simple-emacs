@@ -48,6 +48,10 @@
 ;; Convert 'yes and no' to 'y and n'
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;; Turn off any sounds
+(setq ring-bell-function 'ignore
+      visible-bell nil)
+
 ;; Increase stack size
 (setq max-specpdl-size 32000)
 

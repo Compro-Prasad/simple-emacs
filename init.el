@@ -241,6 +241,8 @@
 (use-package popwin
   :ensure t
   :defer t
+  :init
+  (require 'popwin)
   :config
   (progn
     (popwin-mode 1)
@@ -419,14 +421,13 @@
 ;; Other keybindings
 (simple-emacs/load-files
  '(
-   "~/.emacs.d/other-config.el"
-   "~/.emacs.d/other-keybinds.el"
+   "~/.emacs.d/simple-emacs.el"
+   "~/.emacs.d/simple-keybinds.el"
    "~/.emacs.d/simple-tabs.el"
    "~/.emacs.d/simple-sidebar.el"
    "~/.emacs.d/simple-multiple-cursors.el"
    "~/.emacs.d/simple-project.el"
-   "~/.emacs.d/simple-python.el"
-   "~/.emacs.d/simple-cpp.el"
+   "~/.emacs.d/simple-languages.el"
    "~/.emacs.d/simple-shell.el"
    ))
 

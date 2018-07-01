@@ -1,6 +1,14 @@
 (use-package treemacs
   :ensure t
   :defer t
+  :bind (([C-m] . treemacs-delete-other-windows)
+         ("C-x 1" . treemacs-delete-other-windows)
+         ("C-b" . simple-emacs/switch-to-sidebar)
+         ("C-S-b" . treemacs)
+         :map treemacs-mode-map
+         ([right-fringe mouse-1] . treemacs)
+         ([mouse-1] . treemacs-RET-action)
+         ([mouse-3] . treemacs-leftclick-action))
   :init
   (with-eval-after-load 'winum
     (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
@@ -14,13 +22,6 @@
         (treemacs--init default-directory))))
   :config
   (progn
-    (define-key treemacs-mode-map [right-fringe mouse-1] 'treemacs)
-    (global-set-key [C-m] 'treemacs-delete-other-windows)
-    (global-set-key (kbd "C-x 1") 'treemacs-delete-other-windows)
-    (define-key treemacs-mode-map [mouse-1] 'treemacs-RET-action)
-    (define-key treemacs-mode-map [mouse-3] 'treemacs-leftclick-action)
-    (global-set-key (kbd "C-b") 'simple-emacs/switch-to-sidebar)
-    (global-set-key (kbd "C-S-b") 'treemacs)
     (setq treemacs-collapse-dirs              (if (executable-find "python") 3 0)
           treemacs-file-event-delay           5000
           treemacs-follow-after-init          t

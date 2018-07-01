@@ -298,7 +298,9 @@
     :ensure t
     :defer t
     :init
-    (httpd-start))
+    (progn
+      (httpd-start)
+      (set-process-query-on-exit-flag (get-process "httpd") nil)))
   (use-package impatient-mode
     :ensure t
     :defer t

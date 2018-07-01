@@ -1,5 +1,4 @@
 .cache
-/.mc-lists.el
 *~
 magithub
 *.elc

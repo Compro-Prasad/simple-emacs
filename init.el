@@ -230,7 +230,6 @@
         helm-M-x-fuzzy-match              t    ;; Fuzzy matching in M-x
         helm-buffers-fuzzy-matching       t
         helm-recentf-fuzzy-match          t
-        helm-display-function             'helm-display-buffer-in-own-frame
         helm-display-buffer-reuse-frame   t
         helm-use-undecorated-frame-option t)
   :config
@@ -238,6 +237,21 @@
   (helm-mode 1)
   (helm-autoresize-mode 1)
   (global-unset-key (kbd "C-x c")))
+
+(use-package popwin
+  :ensure t
+  :defer t
+  :config
+  (progn
+    (popwin-mode 1)
+    (setq display-buffer-function 'popwin:display-buffer)
+    (push '("^\*helm .+\*$" :dedicated t :regexp t :position bottom) popwin:special-display-config)
+    (push '("^\*helm-.+\*$" :dedicated t :regexp t :position bottom) popwin:special-display-config)
+    (push '("*undo-tree*"            :dedicated t :position right  :stick t :noselect nil :width   60) popwin:special-display-config)
+    (push '("*undo-tree Diff*"       :dedicated t :position bottom :stick t :noselect nil :height 0.3) popwin:special-display-config)
+    (push '("*Shell Command Output*" :dedicated t :position bottom :stick t :noselect nil            ) popwin:special-display-config)
+    (push '("*Async Shell Command*"  :dedicated t :position bottom :stick t :noselect nil            ) popwin:special-display-config)
+    (push '("*grep*"                 :dedicated t :position bottom :stick t :noselect nil            ) popwin:special-display-config)))
 
 ;; Syntax checking
 (use-package flycheck
@@ -373,9 +387,10 @@
   :ensure t :defer t
   :bind (("C-z" . undo-tree-undo)
          ("C-S-z" . undo-tree-redo)
-         ("C-/" . undo-tree-visualize)
          :map undo-tree-map
-         ("C-/" . undo-tree-visualize))
+         ("C-/" . undo-tree-visualize)
+         :map undo-tree-visualizer-selection-mode-map  ; TODO
+         ([escape] . undo-tree-visualizer-quit))
   :init (global-undo-tree-mode 1)
   :config
   (progn

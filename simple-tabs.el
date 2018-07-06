@@ -35,19 +35,17 @@
 
 
 (with-eval-after-load 'magit
-  (require 'rx)
-
-  (defun simple-emacs/project-kill-magit ()
+  (defun project-kill-magit-buffers ()
     "Kill current project's magit buffers."
     (interactive)
-    (kill-matching-buffers (rx
-                            (and line-start
-                                 "magit"
-                                 (or "" (and "-" (zero-or-more (in "a-z"))))
-                                 ": "
-                                 (or (eval (simple-emacs/basename default-directory))
-                                     (eval (projectile-project-name)))))
-                           t t)
-    (delete-window))
-
+    (when (> (count-windows) 1)
+      (delete-window))
+    (let ((project-magit-buffers-regexp
+           (concat
+            "^magit\\(?:\\|-[a-z]*\\): \\(?:"
+            (regexp-quote (basename default-directory))
+            "\\|"
+            (regexp-quote (basename default-directory))
+            "\\)")))
+      (kill-matching-buffers project-magit-buffers-regexp t t)))
   (define-key magit-status-mode-map (kbd "q") 'simple-emacs/project-kill-magit))

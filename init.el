@@ -48,70 +48,87 @@
 ;; Convert 'yes and no' to 'y and n'
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;; Turn off any sounds
-(setq ring-bell-function 'ignore
-      visible-bell nil)
+(setq
+ ;; Always follow symlinks
+ find-file-visit-truename t
 
-;; Increase stack size
-(setq max-specpdl-size 32000)
+ ;; Turn off any sounds
+ ring-bell-function 'ignore
+ visible-bell nil
 
-;; Increase depth of eval
-(setq max-lisp-eval-depth 2048)
+ ;; Increase stack size
+ max-specpdl-size 32000
 
-;; Always load fresh .el files over byte-compiled ones
-(setq load-prefer-newer t)
+ ;; Increase depth of eval
+ max-lisp-eval-depth 2048
 
-;; Decrease frequency of GC
-(setq gc-cons-threshold 10000000)
+ ;; Better buffer naming style
+ uniquify-buffer-name-style 'forward
 
-;; Fix line numbers
-(setq line-number-display-limit-width 1000000)
+ ;; Increase kill ring max capacity
+ kill-ring-max 1024
 
-;; Fixes some TLS connections
-(setq gnutls-min-prime-bits 4096)
+ ;; Always load fresh .el files over byte-compiled ones
+ load-prefer-newer t
 
-(setq recentf-max-saved-items 512
-      history-length t
-      history-delete-duplicates t
-      recentf-save-file (concat simple-emacs/cache-dir "recentf")
-      savehist-file     (concat simple-emacs/cache-dir "savehist")
-      save-place-file   (concat simple-emacs/cache-dir "saveplace")
-      savehist-additional-variables
-      '(kill-ring
-        search-ring
-        regexp-search-ring))
+ ;; Decrease frequency of GC
+ gc-cons-threshold 10000000
+
+ ;; Fix line numbers
+ line-number-display-limit-width 1000000
+
+ ;; Themes are generally safe
+ custom-safe-themes t
+
+ ;; Follow symlinks
+ vc-follow-symlinks t
+
+ ;; Scroll preserving screen position
+ scroll-preserve-screen-position 'always
+
+ ;; Fixes some TLS connections
+ gnutls-min-prime-bits 4096
+
+ ;; scroll one line at a time
+ scroll-step            1
+ scroll-conservatively  10000
+ mouse-wheel-scroll-amount '(1 ((shift) . 1))
+
+ recentf-max-saved-items 512
+ history-length 256
+ history-delete-duplicates t
+ recentf-save-file (concat simple-emacs/cache-dir "recentf")
+ savehist-file     (concat simple-emacs/cache-dir "savehist")
+ save-place-file   (concat simple-emacs/cache-dir "saveplace")
+ savehist-additional-variables '(kill-ring search-ring regexp-search-ring)
+
+ ;; Handling backups
+ backup-directory-alist `(("." . ,(concat simple-emacs/cache-dir "backups/")))
+ delete-old-versions -1
+ version-control t
+ vc-make-backup-files t
+ auto-save-file-name-transforms '((".*" "~/.emacs.d/.cache/auto-save-list/" t))
+
+ ;; Automatically save and restore sessions
+ desktop-dirname             (concat simple-emacs/cache-dir "desktop/")
+ desktop-base-file-name      "emacs.desktop"
+ desktop-base-lock-name      "lock"
+ desktop-path                (list desktop-dirname)
+ desktop-save                t
+ desktop-files-not-to-save   "^$" ;reload tramp paths
+ desktop-load-locked-desktop nil
+ desktop-auto-save-timeout   30)
+
 (setq-default save-place t)
 (save-place-mode 1)
 (savehist-mode 1)
 
-;; Automatically save and restore sessions
-(setq desktop-dirname             (concat simple-emacs/cache-dir "desktop/")
-      desktop-base-file-name      "emacs.desktop"
-      desktop-base-lock-name      "lock"
-      desktop-path                (list desktop-dirname)
-      desktop-save                t
-      desktop-files-not-to-save   "^$" ;reload tramp paths
-      desktop-load-locked-desktop nil
-      desktop-auto-save-timeout   30)
 (desktop-save-mode 1)
-
-;; Handling backups
-(setq backup-directory-alist `(("." . ,(concat simple-emacs/cache-dir "backups/"))))
-(setq delete-old-versions -1)
-(setq version-control t)
-(setq vc-make-backup-files t)
-(setq auto-save-file-name-transforms '((".*" "~/.emacs.d/.cache/auto-save-list/" t)))
-
 
 
 
 
 ;; UI configurations
-
-;; scroll one line at a time
-(setq scroll-step            1
-      scroll-conservatively  10000
-      mouse-wheel-scroll-amount '(1 ((shift) . 1)))
 
 ;; Better right click
 (define-key global-map [mouse-3] menu-bar-edit-menu)
@@ -136,14 +153,7 @@
 (defun display-startup-echo-area-message ()
   (message "Let the hacking begin!"))
 
-;; Better buffer naming style
-(setq uniquify-buffer-name-style 'forward)
-
-;; Scroll preserving screen position
-(setq scroll-preserve-screen-position 'always)
-
 ;; Theme
-(setq custom-safe-themes t)     ;; Themes are generally safe
 (use-package monokai-theme
   :ensure monokai-theme
   :defer t
@@ -162,9 +172,6 @@
 
 ;; No tabs, only spaces
 (setq-default indent-tabs-mode nil)
-
-;; Increase kill ring max capacity
-(setq kill-ring-max 1024)
 
 ;; Moving text
 (use-package move-text
@@ -191,7 +198,6 @@
 (global-auto-revert-mode t)
 
 ;; Highlight matching parenthesis
-;; (setq show-paren-style 'expression)
 (show-paren-mode t)
 
 ;; Hungrily delete whitespace
@@ -225,10 +231,10 @@
   :ensure t
   :defer t
   :bind (("M-x" . helm-M-x)
-          ("C-S-p" . helm-M-x)
-          ("C-x C-f" . helm-find-files)
-          ("C-x b" . helm-mini)
-          ("C-S-v" . helm-show-kill-ring))
+         ("C-S-p" . helm-M-x)
+         ("C-x C-f" . helm-find-files)
+         ("C-x b" . helm-mini)
+         ("C-S-v" . helm-show-kill-ring))
   :init
   (setq helm-candidate-number-limit       256  ;; number of items in completion list
         helm-M-x-fuzzy-match              t    ;; Fuzzy matching in M-x

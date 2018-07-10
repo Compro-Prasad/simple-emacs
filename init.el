@@ -250,15 +250,9 @@
 
 (use-package popwin
   :ensure t
-  :defer t
-  :init
-  (require 'popwin)
   :config
   (progn
     (popwin-mode 1)
-    (setq display-buffer-function 'popwin:display-buffer)
-    (push '("^\*helm .+\*$" :dedicated t :regexp t :position bottom) popwin:special-display-config)
-    (push '("^\*helm-.+\*$" :dedicated t :regexp t :position bottom) popwin:special-display-config)
     (push '("*undo-tree*"            :dedicated t :position right  :stick t :noselect nil :width   60) popwin:special-display-config)
     (push '("*undo-tree Diff*"       :dedicated t :position bottom :stick t :noselect nil :height 0.3) popwin:special-display-config)
     (push '("*Shell Command Output*" :dedicated t :position bottom :stick t :noselect nil            ) popwin:special-display-config)
@@ -294,12 +288,25 @@
   (use-package magithub :ensure t :defer t)
   (use-package magit-gitflow :ensure t :defer t)
   :config
-  (with-eval-after-load 'elscreen
-    (define-key magit-mode-map [C-tab] 'elscreen-next))
-  (setq magit-diff-highlight-trailing t
-        magit-diff-paint-whitespace t
-        magit-diff-highlight-hunk-body t
-        magit-diff-refine-hunk 'all))
+  (progn
+    (defun simple-emacs/project-kill-magit-buffers ()
+      "Kill current project's magit buffers."
+      (interactive)
+      (when (> (count-windows) 1)
+        (delete-window))
+      (let ((project-magit-buffers-regexp
+             (concat
+              "^magit\\(?:\\|-[a-z]*\\): \\(?:"
+              (regexp-quote (simple-emacs/basename default-directory))
+              "\\|"
+              (regexp-quote (simple-emacs/basename default-directory))
+              "\\)")))
+        (kill-matching-buffers project-magit-buffers-regexp t t)))
+    (define-key magit-status-mode-map (kbd "q") 'simple-emacs/project-kill-magit-buffers)
+    (setq magit-diff-highlight-trailing t
+          magit-diff-paint-whitespace t
+          magit-diff-highlight-hunk-body t
+          magit-diff-refine-hunk 'all)))
 
 ;; Use web mode
 (use-package web-mode

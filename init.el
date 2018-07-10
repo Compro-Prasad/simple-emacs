@@ -119,7 +119,6 @@
  desktop-load-locked-desktop nil
  desktop-auto-save-timeout   30)
 
-(setq-default save-place t)
 (save-place-mode 1)
 (savehist-mode 1)
 

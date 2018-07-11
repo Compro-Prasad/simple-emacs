@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(rjsx-mode typescript-mode popwin tabbar-ruler tabbar eshell-git-prompt eshell-fringe-status eshell-did-you-mean shell-pop atom-one-dark-theme monokai-theme pyvenv pipenv anaconda-mode py-autopep8 impatient-mode simple-httpd httpd switch-window test-c company-web undo-tree diff-hl multiple-cursors treemacs-projectile which-key company-quickhelp company-irony company-tern company helm-projectile helm-ag projectile expand-region web-mode magit-gitflow magithub magit flycheck-clang-analyzer flycheck helm yasnippet-snippets yasnippet hungry-delete use-package))
+   '(quickrun ein rjsx-mode typescript-mode popwin tabbar-ruler tabbar eshell-git-prompt eshell-fringe-status eshell-did-you-mean shell-pop atom-one-dark-theme monokai-theme pyvenv pipenv anaconda-mode py-autopep8 impatient-mode simple-httpd httpd switch-window company-web undo-tree diff-hl multiple-cursors treemacs-projectile which-key company-quickhelp company-irony company-tern company helm-projectile helm-ag projectile expand-region web-mode magit-gitflow magithub magit flycheck-clang-analyzer flycheck helm yasnippet-snippets yasnippet hungry-delete use-package))
  '(shell-pop-default-directory (\, default-directory))
  '(shell-pop-full-span t)
  '(shell-pop-shell-type '("eshell" "*eshell*" (lambda nil (eshell))))

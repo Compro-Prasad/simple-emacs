@@ -19,15 +19,16 @@
     (require 'pipenv)
     (require 'pyvenv)))
 
-;; C and C++
-(use-package test-c
+;; Run any single file program using emacs-quickrun
+(use-package quickrun
   :ensure t
-  :defer t
-  :bind (("<f9>" . 'test-c))
-  :init
-  (progn
-    (require 'test-c)
-    (add-hook 'c-mode-common-hook 'test-c-mode)))
+  :bind
+  (("<f9> <f9>" . quickrun)
+   ("<f9> r" . quickrun-region)
+   ("<f9> a" . quickrun-with-arg)
+   ("<f9> s" . quickrun-shell)
+   ("<f9> c" . quickrun-compile-only)
+   ("<f9> R" . quickrun-replace-region)))
 
 (provide 'simple-languages)
-;;; simple-python.el ends here
+;;; simple-languages.el ends here

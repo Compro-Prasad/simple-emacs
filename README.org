@@ -26,9 +26,11 @@ It is recommended that you use Emacs development build instead of normal builds.
 For Ubuntu:
 #+BEGIN_SRC shell :exports code
   sudo add-apt-repository ppa:ubuntu-elisp/ppa
+  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0D7BAE435ADBC6C3E4918A74062D648FD62FCE72
   sudo apt-get update
   sudo apt-get install emacs-snapshot
 #+END_SRC
+If the public key has changed then you can use the fingerprint from [[https://launchpad.net/~ubuntu-elisp/+archive/ubuntu/ppa#signing-key][here]].
 
 For Arch Linux:
 #+BEGIN_SRC shell :exports code

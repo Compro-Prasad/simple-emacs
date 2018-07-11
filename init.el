@@ -225,6 +225,32 @@
     :defer t)
   (yas-global-mode 1))
 
+;; Project management
+(use-package projectile
+  :ensure t
+  :bind (:map projectile-command-map
+              (":" . goto-line)
+              ("@" . simple-find-symbol)
+              ("C-p" . helm-projectile)
+              ("p" . helm-projectile))
+  :init
+  (progn
+    (setq projectile-keymap-prefix (kbd "C-p"))
+    (use-package helm-ag :ensure t)
+    (use-package helm-projectile
+      :ensure t
+      :init
+      (helm-projectile-on)))
+  :config
+  (progn
+    (projectile-register-project-type 'npm '("package.json")
+                                      :compile "npm install"
+                                      :test "npm test"
+                                      :run "npm start"
+                                      :test-suffix ".spec")
+    (global-unset-key (kbd "C-c p"))
+    (projectile-mode 1)))
+
 ;; Auto completion for Emacs lists
 (use-package helm
   :ensure t
@@ -442,7 +468,6 @@
    "~/.emacs.d/simple-tabs.el"
    "~/.emacs.d/simple-sidebar.el"
    "~/.emacs.d/simple-multiple-cursors.el"
-   "~/.emacs.d/simple-project.el"
    "~/.emacs.d/simple-languages.el"
    "~/.emacs.d/simple-shell.el"
    ))
@@ -459,7 +484,6 @@
 (set-keyboard-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 (setq buffer-file-coding-system 'utf-8)
-(setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT_STRING))
 
 
 

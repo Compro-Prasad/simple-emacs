@@ -3,8 +3,7 @@
 #+STARTUP: indent
 
 ** Introduction
-GNU Emacs is a beast that cannot be tamed easily. But once you know its
-workarounds, it will be a place better than heaven. So, I have tried to convert
+GNU Emacs is a beast that cannot be tamed easily. So, I have tried to convert
 this beast into a puppy that you will love using. If the puppy gets harsh on you
 then open an [[https://github.com/Compro-Prasad/simple-emacs/issues][issue]] or send a [[https://github.com/Compro-Prasad/simple-emacs/pulls][pull request]] so that the beast becomes nicer than
 before.
@@ -13,15 +12,18 @@ before.
 This configuration is targeted towards new users who have been using modern
 editors like Sublime Text and want to see the power of Emacs.
 
-If you are a Vim user then you might want to checkout [[https://spacemacs.org][Spacemacs]] which has
-everything setup top to bottom for Vim experience in Emacs.
+If you are a Vim user or want to squeeze every functionality out of Emacs then
+you might want to checkout [[https://spacemacs.org][Spacemacs]] which has everything setup top to bottom
+for Vim experience in Emacs.
 
-If you are a power user and you want to squeeze out every functionality out of
-Emacs then you should go with [[https://spacemacs.org][Spacemacs]] which has far better support for
-grouping buffers and different window configurations.
+** Requirements
+This has been tested on GNU Emacs development build on Linux. Other stable
+versions of Emacs have a very low probablity to properly work with this
+configuration.
 
-** Tested on GNU Emacs development build
-It is recommended that you use Emacs development build instead of normal builds.
+You have the option to compile from source which is hard for newbies. So, I have
+provided some other ways to install GNU Emacs on various platforms. There is no
+plan to support this on Microsoft Windows.
 
 For Ubuntu:
 #+BEGIN_SRC shell :exports code
@@ -41,8 +43,6 @@ For Mac OS:
 #+BEGIN_SRC shell :exports code
   brew install emacs-mac --with-cocoa --with-xml2 --with-gnutls --with-imagemagick --with-glib --HEAD
 #+END_SRC
-
-It is better to compile from source but that is totally upto you.
 
 ** Installing =simple-emacs=
 If you have been using Emacs from before then backup your configurations:
@@ -70,17 +70,18 @@ press ~C-g~ to cancel any action.
 If that doesn't help then do ~ESC~ or ~C-]~ or ~C-x X q~ or
 ~M-x top-level~.
 
-** Files and Projects
+** Files
 - Press ~C-n~ create an unsaved buffer. Use ~C-s~ to save it else it will be
   lost in the next session.
 - Press ~C-o~ to open or create a file.
 - Use native ~C-x C-f~ to do any of the above but using Helm interface.
+** Projects
 - *File > Open project* opens project in sidebar.
 - Clicking on extreme left of window toggles sidebar.
-- Using ~C-b~ to toggle sidebar is very useful but tricky. It might
-  ask for user input in minibuffer.
-- ~C-S-b~ toggles sidebar if you had it open before else it will ask
-  you the directory in a Helm completion to show the sidebar.
+- Using ~C-b~ to toggle sidebar is very useful but tricky. It might ask for user
+  input in minibuffer.
+- ~C-S-b~ toggles sidebar if you had it open before else it will ask you the
+  directory in a Helm completion to show the sidebar.
 
 ** Multiple cursors
 Work in progress.

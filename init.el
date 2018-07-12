@@ -243,6 +243,8 @@
       (helm-projectile-on)))
   :config
   (progn
+    (setq projectile-known-projects-file (concat simple-emacs/cache-dir "projectile-bookmarks.eld")
+          projectile-cache-file (concat simple-emacs/cache-dir "projectile.cache"))
     (projectile-register-project-type 'npm '("package.json")
                                       :compile "npm install"
                                       :test "npm test"

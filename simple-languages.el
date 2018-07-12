@@ -28,7 +28,18 @@
    ("<f9> a" . quickrun-with-arg)
    ("<f9> s" . quickrun-shell)
    ("<f9> c" . quickrun-compile-only)
-   ("<f9> R" . quickrun-replace-region)))
+   ("<f9> R" . quickrun-replace-region))
+  :init
+  (progn
+    (defun run-current-buffer-in-eshell ()
+      "Run current buffer."
+      (interactive)
+      (save-window-excursion
+        (call-interactively 'shell-pop))
+      (call-interactively 'quickrun-shell))
+    (tool-bar-add-item (expand-file-name "icons/run16" user-emacs-directory)
+                       'run-current-buffer-in-eshell 'quickrun-button
+                       :help   "Run current buffer.<F9 s>")))
 
 (provide 'simple-languages)
 ;;; simple-languages.el ends here

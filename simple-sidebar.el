@@ -1,6 +1,7 @@
 (use-package treemacs
   :ensure t
   :defer t
+  :commands treemacs-add-project-at
   :bind (([C-m] . treemacs-delete-other-windows)
          ("C-x 1" . treemacs-delete-other-windows)
          ("C-b" . treemacs)
@@ -9,6 +10,14 @@
          ([mouse-1] . treemacs-RET-action)
          ([mouse-3] . treemacs-leftclick-action))
   :init
+  (defun simple-emacs/open-project ()
+    "Open project."
+    (interactive)
+    (if (fboundp 'x-file-dialog)
+        (let ((project-dir (x-file-dialog "Project Directory" default-directory "" t t)))
+        (treemacs-add-project-at project-dir (simple-emacs/basename project-dir)))
+      (call-interactively 'treemacs-add-project)))
+  (define-key global-map [menu-bar file open-project] '("Open Folder" . simple-emacs/open-project))
   (with-eval-after-load 'winum
     (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
   (global-set-key [left-fringe mouse-1] 'treemacs)
@@ -56,17 +65,3 @@
         ("C-x t B"   . treemacs-bookmark)
         ("C-x t C-t" . treemacs-find-file)
         ("C-x t M-t" . treemacs-find-tag)))
-
-(use-package treemacs-projectile
-  :after projectile
-  :ensure t
-  :init
-  (require 'treemacs)
-  (defun simple-emacs/open-project ()
-    "Open project."
-    (interactive)
-    (if (fboundp 'x-file-dialog)
-        (let ((project-dir (x-file-dialog "Project Directory" default-directory "" t t)))
-        (treemacs-add-project-at project-dir (simple-emacs/basename project-dir)))
-      (call-interactively 'treemacs-add-project)))
-  (define-key global-map [menu-bar file open-project] '("Open Folder" . simple-emacs/open-project)))

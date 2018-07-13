@@ -10,21 +10,44 @@ send a [pull request](https://github.com/Compro-Prasad/simple-emacs/pulls) so
 that we can work towards a better simple Emacs.
 
 
+![Simple Emacs](./images/simple-emacs.png)
+![Completion](./images/completion.gif)
+
+
 # Target users
 
 This configuration is targeted towards new users who have been using modern
 editors like Sublime Text and want to see the power of Emacs.
 
 
+# Why should I switch?
+
+- This configuration of Emacs ensures that anybody can dive into with zero
+  configurations provided you have latest Emacs and this configuration.
+- If you feel anything is missing then digging deep is very easy with high
+  quality documentation from right within the editor itself.
+- Huge technical help is available once you get to know the basics about Emacs
+  and Elisp.
+- You come to learn lots of things by just knowing the internals of Emacs.
+
+
+# Why should I not switch?
+
+This is a beta configuration and forever will be in beta. If you don't have time
+to check out this configuration and report bugs, features and keybindings then
+it is not for you.
+
+
 # Requirements
 
 This has been tested on GNU Emacs development build on Linux. Other stable
-versions of Emacs which are normally available though an app store have a very
+versions of Emacs which are normally available through an app store have a very
 low probablity of working with this configuration.
 
-The best option I recommend is to compile from source from their [official
-repo](git://git.sv.gnu.org/emacs.git) but that might be hard for newbies. So,
-there are alternate options to install the latest builds.
+The best option I recommend is to compile from source from their
+[official repo](git://git.sv.gnu.org/emacs.git) but that might be hard
+for newbies. So, there are alternate options to install the latest
+builds.
 
 For Ubuntu:
 
@@ -98,6 +121,8 @@ If that doesn't help then do `ESC` or `C-]` or `C-x X q` or `M-x top-level`.
 
 Work in progress.
 
+| Keybind     | Definition                |
+|-------------|---------------------------|
 | `M-S-down`  | Select next occurance     |
 | `M-S-up`    | Select previous occurance |
 | `C-;`       | Select all occurances     |
@@ -192,3 +217,6 @@ for more information on keybindings for jumping to definitions and stuff.
 | `C-S-t s`  | Syntax checking | `flycheck-mode` |
 | `C-S-t c`  | Completion      | `company-mode`  |
 | `C-S-t T`  | Tabs            | `tabbar-mode`   |
+
+See [ChangleLog](CHANGELOG.md) for further bits of technical details as per
+release.

@@ -108,6 +108,7 @@
  version-control t
  vc-make-backup-files t
  auto-save-file-name-transforms '((".*" "~/.emacs.d/.cache/auto-save-list/" t))
+ auto-save-list-file-prefix (concat simple-emacs/cache-dir "auto-save-list/saves-")
 
  ;; Automatically save and restore sessions
  desktop-dirname             (concat simple-emacs/cache-dir "desktop/")

@@ -9,18 +9,27 @@
          ([right-fringe mouse-1] . treemacs)
          ([mouse-1] . treemacs-RET-action)
          ([mouse-3] . treemacs-leftclick-action))
+
   :init
-  (defun simple-emacs/open-project ()
-    "Open project."
-    (interactive)
-    (if (fboundp 'x-file-dialog)
-        (let ((project-dir (x-file-dialog "Project Directory" default-directory "" t t)))
-        (treemacs-add-project-at project-dir (simple-emacs/basename project-dir)))
-      (call-interactively 'treemacs-add-project)))
-  (define-key global-map [menu-bar file open-project] '("Open Folder" . simple-emacs/open-project))
-  (with-eval-after-load 'winum
-    (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
-  (global-set-key [left-fringe mouse-1] 'treemacs)
+  (progn
+
+    (defun simple-emacs/open-project ()
+      "Open project."
+      (interactive)
+      (if (fboundp 'x-file-dialog)
+          (let ((project-dir (x-file-dialog "Project Directory" default-directory "" t t)))
+            (treemacs-add-project-at project-dir (simple-emacs/basename project-dir)))
+        (call-interactively 'treemacs-add-project))
+      (unless (treemacs--is-visible?)
+        (treemacs)))
+
+    (define-key global-map [menu-bar file open-project] '("Open Folder" . simple-emacs/open-project))
+
+    (with-eval-after-load 'winum
+      (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
+
+    (global-set-key [left-fringe mouse-1] 'treemacs))
+
   :config
   (progn
     (setq treemacs-collapse-dirs              (if (executable-find "python") 3 0)

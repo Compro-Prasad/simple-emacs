@@ -93,6 +93,12 @@ Now open Emacs and start doing your stuff.
 - `M-S-x` → Alt + Shift + x
 - Keybindings are case sensitive, i.e., `C-t` and `C-S-t` are different keys. Or
   `C-x b` and `C-x B` are also different.
+- This configuration has changed many default keybindings. Trying to run these
+  keys on a different configuration would result in a totally different outcome.
+- General keybinding conventions in Emacs can be found
+  [here](https://www.gnu.org/software/emacs/manual/html_node/elisp/Key-Binding-Conventions.html)
+  and
+  [here](https://www.masteringemacs.org/article/mastering-key-bindings-emacs).
 
 
 # `C-g` the Panic key

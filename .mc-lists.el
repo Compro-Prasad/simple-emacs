@@ -3,6 +3,7 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        c-electric-slash
         hungry-delete-backward
         hungry-delete-forward
         my-delete-word

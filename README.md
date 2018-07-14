@@ -33,9 +33,21 @@ editors like Sublime Text and want to see the power of Emacs.
 
 # Why should I not switch?
 
-This is a beta configuration and forever will be in beta. If you don't have time
-to check out this configuration and report bugs, features and keybindings then
-it is not for you.
+- This is a beta configuration and forever will be in beta. If you don't have time
+  to check out this configuration and report bugs, features and keybindings then
+  it is not for you.
+- Smooth scrolling isn't there.
+- The point(cursor) moves as you scroll the buffer. Workaround is to press
+  `C-SPC` twice before scrolling. To go back to the position, use `C-x` twice.
+- No minimap.
+- Ligature support is missing. Ligature support is there but there are a few
+  technical difficulties related to indentation when writing Lisp code or
+  multiline statements in a language like C++. Else, it works 100% fine. Its not
+  included with this configuration so you don't need to worry about it.
+- Tabs in the GUI may vanish in some modes. To switch to a buffer you can still
+  use either of `C-x C-<left>`, `C-x C-<right>`, `C-<tab>`, `C-S-<tab>`, `C-x
+  b`. See [keybinding
+  conventions](https://github.com/compro-prasad/simple-emacs#some-keybinding-conventions)
 
 
 # Requirements
@@ -44,10 +56,9 @@ This has been tested on GNU Emacs development build on Linux. Other stable
 versions of Emacs which are normally available through an app store have a very
 low probablity of working with this configuration.
 
-The best option I recommend is to compile from source from their
-[official repo](git://git.sv.gnu.org/emacs.git) but that might be hard
-for newbies. So, there are alternate options to install the latest
-builds.
+The best option I recommend is to compile from source from their [official
+repo](https://git.sv.gnu.org/emacs.git) but that might be hard for newbies. So,
+there are alternate options to install the latest builds.
 
 For Ubuntu:
 

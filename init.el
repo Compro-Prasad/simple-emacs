@@ -226,22 +226,38 @@
     :defer t)
   (yas-global-mode 1))
 
+(use-package ivy
+  :ensure t
+  :defer t
+  :hook (after-init . ivy-mode)
+  :bind
+  (("C-f" . swiper)
+   ("M-x" . counsel-M-x)
+   ("C-S-p" . counsel-M-x)
+   ("C-x C-f" . counsel-find-file)
+   ("C-S-v" . counsel-yank-pop)
+   ("<f1> f" . counsel-describe-function)
+   ("<f1> v" . counsel-describe-variable)
+   ("<f1> l" . counsel-find-library)
+   ("<f2> i" . counsel-info-lookup-symbol)
+   ("<f2> u" . counsel-unicode-char))
+  :config
+  (progn
+    (setq ivy-use-virtual-buffers t
+          ivy-count-format "(%d/%d) "
+          ivy-height 15)))
+
 ;; Project management
 (use-package projectile
   :ensure t
   :bind (:map projectile-command-map
               (":" . goto-line)
-              ("@" . simple-find-symbol)
-              ("C-p" . helm-projectile)
-              ("p" . helm-projectile))
+              ("@" . simple-emacs/find-symbol))
   :init
   (progn
     (setq projectile-keymap-prefix (kbd "C-p"))
-    (use-package helm-ag :ensure t)
-    (use-package helm-projectile
-      :ensure t
-      :init
-      (helm-projectile-on)))
+    (use-package counsel-projectile :ensure t)
+    (counsel-projectile-mode 1))
   :config
   (progn
     (setq projectile-known-projects-file (concat simple-emacs/cache-dir "projectile-bookmarks.eld")
@@ -251,30 +267,7 @@
                                       :test "npm test"
                                       :run "npm start"
                                       :test-suffix ".spec")
-    (global-unset-key (kbd "C-c p"))
-    (projectile-mode 1)))
-
-;; Auto completion for Emacs lists
-(use-package helm
-  :ensure t
-  :defer t
-  :bind (("M-x" . helm-M-x)
-         ("C-S-p" . helm-M-x)
-         ("C-x C-f" . helm-find-files)
-         ("C-x b" . helm-mini)
-         ("C-S-v" . helm-show-kill-ring))
-  :init
-  (setq helm-candidate-number-limit       256  ;; number of items in completion list
-        helm-M-x-fuzzy-match              t    ;; Fuzzy matching in M-x
-        helm-buffers-fuzzy-matching       t
-        helm-recentf-fuzzy-match          t
-        helm-display-buffer-reuse-frame   t
-        helm-use-undecorated-frame-option t)
-  :config
-  (require 'helm-config)
-  (helm-mode 1)
-  (helm-autoresize-mode 1)
-  (global-unset-key (kbd "C-x c")))
+    (global-unset-key (kbd "C-c p"))))
 
 (use-package popwin
   :ensure t

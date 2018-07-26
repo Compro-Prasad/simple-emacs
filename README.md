@@ -53,12 +53,12 @@ editors like Sublime Text and want to see the power of Emacs.
 # Requirements
 
 This has been tested on GNU Emacs development build on Linux. Other stable
-versions of Emacs which are normally available through an app store have a very
-low probablity of working with this configuration.
+versions of Emacs which are normally available through an app store will not
+work with this configuration.
 
-The best option I recommend is to compile from source from their [official
-repo](https://git.sv.gnu.org/emacs.git) but that might be hard for newbies. So,
-there are alternate options to install the latest builds.
+The best option I recommend is to compile Emacs from source from
+https://git.sv.gnu.org/emacs.git but that might be hard for newbies. So, there
+are alternate options to install the latest builds.
 
 For Ubuntu:
 
@@ -74,7 +74,7 @@ For Arch Linux:
 
     pacaur -S emacs-git
 
-For Mac OS:
+For macOS:
 
     brew install emacs-mac --with-cocoa --with-xml2 --with-gnutls --with-imagemagick --with-glib --HEAD
 
@@ -109,7 +109,7 @@ Now open Emacs and start doing your stuff.
 - General keybinding conventions in Emacs can be found
   [here](https://www.gnu.org/software/emacs/manual/html_node/elisp/Key-Binding-Conventions.html)
   and
-  [here](https://www.masteringemacs.org/article/mastering-key-bindings-emacs).
+  [there](https://www.masteringemacs.org/article/mastering-key-bindings-emacs).
 
 
 # `C-g` the Panic key
@@ -140,8 +140,8 @@ Work in progress.
 
 | Keybind     | Definition                |
 |-------------|---------------------------|
-| `M-S-down`  | Select next occurance     |
-| `M-S-up`    | Select previous occurance |
+| `C-d`       | Select next occurance     |
+| `C-S-d`     | Select previous occurance |
 | `C-;`       | Select all occurances     |
 | `M-S-click` | Create cursor with mouse  |
 
@@ -155,16 +155,21 @@ Work in progress.
 - Undo history is saved throughout sessions.
 
 
-# Switching tabs and buffers
+# Tabs and buffers
 
-- You can switch tabs using `C-TAB` and `C-S-TAB`.
-- To switch buffers use `C-x C-right` and `C-x C-left`.
-- Each buffer is assigned to an unique tab.
-- `C-x b` lists all buffers in current session.
+Buffers are internal representations of tabs in Emacs. In other words, tabs are
+a secondary representation of an Emacs buffer.
+
+## Navigating
+
+- You can switch between tabs using `C-TAB` and `C-S-TAB`.
+- To switch between recently used buffers, use `C-x C-right` and `C-x C-left`.
+- `C-x b` lists all buffers in current session. Select one to open.
+- `C-p b` lists all buffers in current open project.
 - Tabs are grouped by projects. Use `-` in top left corner to switch projects.
 
 
-# Closing tabs
+## Closing
 
 - Closing a tab is analogous to closing a buffer.
 - `C-w` or `C-x k` to close any tab.
@@ -172,6 +177,9 @@ Work in progress.
 
 
 # Searching
+
+When searching for a query, all the results are grouped in the minibuffer
+itself. Pressing return on any of them takes you to that place.
 
 - `C-f` does forward search
 - `C-S-f` does backward search

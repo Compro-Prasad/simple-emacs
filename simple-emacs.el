@@ -61,5 +61,5 @@ This command does not push text to `kill-ring'."
   "Check for git project and then search."
   (interactive)
   (if (vc-find-root default-directory ".git")
-      (helm-grep-do-git-grep t)
-    (helm-do-ag)))
+      (counsel-git-grep)
+    (counsel-ag)))

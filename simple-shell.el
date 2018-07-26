@@ -17,17 +17,6 @@
   (add-hook 'org-mode-hook (lambda ()
                             (define-key org-mode-map (kbd "C-'") 'shell-pop))))
 
-(use-package eshell-did-you-mean
-  :ensure t
-  :defer t
-  :init
-  (eshell-did-you-mean-setup))
-
-(use-package eshell-fringe-status
-  :ensure t :defer t
-  :init
-  (add-hook 'eshell-mode-hook 'eshell-fringe-status-mode))
-
 (use-package eshell-git-prompt
   :ensure t :defer t
   :init
@@ -48,7 +37,6 @@
   ;; Caution! this will erase buffer's content at C-l
   (define-key eshell-mode-map (kbd "C-l") 'simple-emacs/eshell-clear-keystroke)
   (define-key eshell-mode-map (kbd "C-d") 'eshell-delchar-or-maybe-eof))
-
 
 (add-hook 'eshell-mode-hook 'simple-emacs/init-eshell)
 

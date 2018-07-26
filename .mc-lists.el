@@ -15,6 +15,8 @@
 
 (setq mc/cmds-to-run-once
       '(
+        counsel-describe-variable
+        describe-key
         helm-M-x
         undo-tree-visualize
         ))

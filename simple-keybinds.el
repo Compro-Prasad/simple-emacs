@@ -14,9 +14,6 @@
  ("C-n" . simple-emacs/create-new-file)
  ("C-o" . simple-emacs/open-existing-file)
 
- ("C-f"   . isearch-forward)
- ("C-S-f" . isearch-backward)
-
  ("C-s" . save-buffer)
  ("C-a" . mark-whole-buffer)
  ("C-q" . save-buffers-kill-emacs)
@@ -24,17 +21,8 @@
  ("C-w" . kill-buffer)
 
  ;; Toggles
- ("C-S-t l" . display-line-numbers-mode)
- ("C-S-t m" . menu-bar-mode)
- ("C-S-t t" . tool-bar-mode)
- ("C-S-t s" . flycheck-mode)
- ("C-S-t c" . company-mode)
-
- :map isearch-mode-map
- ("C-f"      . isearch-repeat-forward)
- ("C-S-f"    . isearch-repeat-backward)
- ([return]   . isearch-repeat-forward)
- ("\r"       . isearch-repeat-forward)
- ([S-return] . isearch-repeat-backward)
- ([escape]   . isearch-exit)
- ("\e"       . isearch-exit))
+ ("C-t l" . display-line-numbers-mode)
+ ("C-t m" . menu-bar-mode)
+ ("C-t t" . tool-bar-mode)
+ ("C-t s" . flycheck-mode)
+ ("C-t c" . company-mode))

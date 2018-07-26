@@ -125,7 +125,7 @@ If that doesn't help then do `ESC` or `C-]` or `C-x X q` or `M-x top-level`.
 - Press `C-n` to create an unsaved buffer. Use `C-s` to save it else it will be
   lost in the next session.
 - Press `C-o` to open or create a file.
-- Use native `C-x C-f` to do any of the above but using Helm interface.
+- Use native `C-x C-f` to do any of the above but using Ivy interface.
 
 
 # Projects
@@ -228,12 +228,12 @@ for more information on keybindings for jumping to definitions and stuff.
 # Toggling features
 | Keybinding | Feature         | Function        |
 |------------|-----------------|-----------------|
-| `C-S-t m`  | Menu bar        | `menu-bar-mode` |
-| `C-S-t t`  | Tool bar        | `tool-bar-mode` |
-| `C-S-t l`  | Line numbers    | `linum-mode`    |
-| `C-S-t s`  | Syntax checking | `flycheck-mode` |
-| `C-S-t c`  | Completion      | `company-mode`  |
-| `C-S-t T`  | Tabs            | `tabbar-mode`   |
+| `C-t m`    | Menu bar        | `menu-bar-mode` |
+| `C-t t`    | Tool bar        | `tool-bar-mode` |
+| `C-t l`    | Line numbers    | `linum-mode`    |
+| `C-t s`    | Syntax checking | `flycheck-mode` |
+| `C-t c`    | Completion      | `company-mode`  |
+| `C-t T`    | Tabs            | `tabbar-mode`   |
 
 See [ChangleLog](CHANGELOG.md) for further bits of technical details as per
 release.

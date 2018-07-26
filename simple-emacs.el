@@ -8,7 +8,7 @@
   (interactive)
   (if (fboundp 'x-file-dialog)
       (find-file (x-file-dialog "Open file" default-directory ""))
-    (helm-find-files nil)))
+    (counsel-find-file)))
 
 (defvar simple-emacs/new-file-count 0
   "Count of new files.")

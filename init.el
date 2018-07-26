@@ -456,7 +456,7 @@
   (dolist (file filelist)
     (simple-emacs/load-file file)))
 
-;; Other keybindings
+;; Load other features
 (simple-emacs/load-files
  '(
    "~/.emacs.d/simple-emacs.el"

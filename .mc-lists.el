@@ -6,6 +6,7 @@
         c-electric-slash
         hungry-delete-backward
         hungry-delete-forward
+        markdown-outdent-or-delete
         my-delete-word
         simple-emacs/backward-delete-word
         simple-emacs/delete-line

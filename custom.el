@@ -5,6 +5,11 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    '(counsel-projectile quickrun ein rjsx-mode typescript-mode popwin tabbar-ruler tabbar eshell-git-prompt shell-pop atom-one-dark-theme monokai-theme anaconda-mode py-autopep8 impatient-mode simple-httpd httpd company-web undo-tree diff-hl company-quickhelp company-irony company-tern expand-region magit-gitflow flycheck-clang-analyzer flycheck hungry-delete))
+ '(safe-local-variable-values
+   '((c-file-offsets
+      (substatement-open . 0)
+      (arglist-intro . +)
+      (arglist-close . +))))
  '(shell-pop-default-directory (\, default-directory))
  '(shell-pop-full-span t)
  '(shell-pop-shell-type '("eshell" "*eshell*" (lambda nil (eshell))))

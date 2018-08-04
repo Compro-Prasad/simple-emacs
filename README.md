@@ -191,8 +191,7 @@ Work in progress.
 When searching for a query, all the results are grouped in the minibuffer
 itself. Pressing return on any of them takes you to that place.
 
-- `C-f` does forward search
-- `C-S-f` does backward search
+- `C-f` searchs in the current buffer
 - `C-r` searches in a Git project. If it is not a Git repository then directory
   is asked first. For it to work in absence of git project install
   [the_silver_searcher](https://github.com/ggreer/the_silver_searcher):

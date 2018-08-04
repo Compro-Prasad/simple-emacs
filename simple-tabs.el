@@ -4,7 +4,7 @@
   :bind (([C-tab] . tabbar-forward-tab)
          ([C-S-iso-lefttab] . tabbar-backward-tab)
          ([C-f4] . kill-current-buffer)
-         ("C-S-t T" . tabbar-mode))
+         ("C-t T" . tabbar-mode))
   :init
   (progn
     (setq tabbar-ruler-global-tabbar t)

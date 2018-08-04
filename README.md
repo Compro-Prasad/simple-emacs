@@ -13,6 +13,12 @@ that we can work towards a better simple Emacs.
 ![Simple Emacs](./images/simple-emacs.png)
 ![Completion](./images/completion.gif)
 
+# Quick Jump
+
+- [Install development version of Emacs](#requirements)
+- [Install simple-emacs](#installing-simple-emacs)
+- [Keybinding conventions](#some-keybinding-conventions)
+- [Different features](#c-g-the-panic-key)
 
 # Target users
 
@@ -46,8 +52,7 @@ editors like Sublime Text and want to see the power of Emacs.
   included with this configuration so you don't need to worry about it.
 - Tabs in the GUI may vanish in some modes. To switch to a buffer you can still
   use either of `C-x C-<left>`, `C-x C-<right>`, `C-<tab>`, `C-S-<tab>`, `C-x
-  b`. See [keybinding
-  conventions](https://github.com/compro-prasad/simple-emacs#some-keybinding-conventions)
+  b`. See [keybinding conventions](#some-keybinding-conventions).
 
 
 # Requirements
@@ -132,6 +137,32 @@ If that doesn't help then do `ESC` or `C-]` or `C-x X q` or `M-x top-level`.
 
 - **File > Open project** opens project in sidebar.
 - Clicking on extreme left of the window toggles sidebar. Shortcut is `C-b`.
+- `C-p @` - find a string in current project.
+- `C-p &` - Run a shell command from project root.
+- `C-p c` - Compile and run current project(accepts a command).
+- `C-p b` - List buffers in current project.
+- `C-p r` - Replace a string in whole project.
+- `C-p :` - Goto line number in current buffer.
+
+
+# Tabs and Buffers
+
+Buffers are internal representations of tabs in Emacs. In other words, tabs are
+a secondary representation of an Emacs buffer.
+
+## Navigating
+
+- You can switch between tabs using `C-TAB` and `C-S-TAB`.
+- To switch between recently used buffers, use `C-x C-right` and `C-x C-left`.
+- `C-x b` lists all buffers in current session. Select one to open.
+- `C-p b` lists all buffers in current open project.
+- Tabs are grouped by projects. Use `-` in top left corner to switch projects.
+
+## Closing
+
+- Closing a tab is analogous to closing a buffer.
+- `C-w` or `C-x k` to close any tab.
+- `C-f4` to close current tab.
 
 
 # Multiple cursors
@@ -151,29 +182,8 @@ Work in progress.
 - To undo a change press `C-z`.
 - To redo changes press `C-S-z`.
 - If the undo/redo is confusing you then press `C-/` to visualize undo tree. Use
-  `q` to close the tree.
+  `up`/`down` to navigate history or `q` to close the tree.
 - Undo history is saved throughout sessions.
-
-
-# Tabs and buffers
-
-Buffers are internal representations of tabs in Emacs. In other words, tabs are
-a secondary representation of an Emacs buffer.
-
-## Navigating
-
-- You can switch between tabs using `C-TAB` and `C-S-TAB`.
-- To switch between recently used buffers, use `C-x C-right` and `C-x C-left`.
-- `C-x b` lists all buffers in current session. Select one to open.
-- `C-p b` lists all buffers in current open project.
-- Tabs are grouped by projects. Use `-` in top left corner to switch projects.
-
-
-## Closing
-
-- Closing a tab is analogous to closing a buffer.
-- `C-w` or `C-x k` to close any tab.
-- `C-f4` to close current tab.
 
 
 # Searching
@@ -204,6 +214,7 @@ Arch Linux:
 - Use `C-l` to clear eshell buffer
 - In Eshell, type use-theme to list and preview available themes
 - To customize shell behaviour look into `simple-shell.el`
+
 
 # Preview HTML pages
 

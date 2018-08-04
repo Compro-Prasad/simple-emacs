@@ -1,7 +1,7 @@
 (use-package multiple-cursors
   :ensure t
   :bind
-  (("C-S-c" . mc/edit-lines)
+  (("C-S-l" . mc/edit-lines)
    ("C-d" . mc/mark-next-like-this)
    ("C-S-d" . mc/mark-previous-like-this)
    ("C-c C-<" . mc/mark-all-like-this)

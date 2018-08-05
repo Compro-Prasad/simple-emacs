@@ -243,8 +243,11 @@
    ("<f2> u" . counsel-unicode-char))
   :config
   (progn
+    (use-package flx :ensure t)
     (setq ivy-use-virtual-buffers t
           ivy-count-format "(%d/%d) "
+          ivy-initial-inputs-alist nil
+          ivy-re-builders-alist '((t . ivy--regex-fuzzy))
           ivy-height 15)))
 
 ;; Project management

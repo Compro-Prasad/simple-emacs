@@ -48,6 +48,9 @@
 ;; Convert 'yes and no' to 'y and n'
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;; Remove C-t for transposing characters
+(global-unset-key (kbd "C-t"))
+
 (setq
  ;; Always follow symlinks
  find-file-visit-truename t
@@ -258,6 +261,11 @@
           ivy-initial-inputs-alist nil
           ivy-re-builders-alist '((t . ivy--regex-fuzzy))
           ivy-height 15)))
+
+;; Aggressive indentation
+(use-package aggressive-indent
+  :ensure t
+  :bind ("C-t i" . global-aggressive-indent-mode))
 
 ;; Project management
 (use-package projectile

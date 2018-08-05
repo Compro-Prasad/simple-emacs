@@ -244,14 +244,15 @@ for more information on keybindings for jumping to definitions and stuff.
 
 
 # Toggling features
-| Keybinding | Feature         | Function        |
-|------------|-----------------|-----------------|
-| `C-t m`    | Menu bar        | `menu-bar-mode` |
-| `C-t t`    | Tool bar        | `tool-bar-mode` |
-| `C-t l`    | Line numbers    | `linum-mode`    |
-| `C-t s`    | Syntax checking | `flycheck-mode` |
-| `C-t c`    | Completion      | `company-mode`  |
-| `C-t T`    | Tabs            | `tabbar-mode`   |
+| Keybinding | Feature                | Function                 |
+|------------|------------------------|--------------------------|
+| `C-t m`    | Menu bar               | `menu-bar-mode`          |
+| `C-t t`    | Tool bar               | `tool-bar-mode`          |
+| `C-t l`    | Line numbers           | `linum-mode`             |
+| `C-t s`    | Syntax checking        | `flycheck-mode`          |
+| `C-t c`    | Completion             | `company-mode`           |
+| `C-t T`    | Tabs                   | `tabbar-mode`            |
+| `C-t i`    | Aggressive indentation | `aggressive-indent-mode` |
 
 See [ChangleLog](CHANGELOG.md) for further bits of technical details as per
 release.

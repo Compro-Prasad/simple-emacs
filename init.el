@@ -157,7 +157,16 @@
 (use-package monokai-theme
   :ensure monokai-theme
   :defer t
-  :init (load-theme 'monokai t))
+  :init
+  (progn
+    (load-theme 'monokai t)
+    (set-face-attribute 'mode-line nil
+                        :box nil
+                        :background "#151515")
+    (set-face-attribute 'mode-line-inactive nil
+                        :box nil
+                        :background "#444"
+                        :foreground "#666")))
 
 
 

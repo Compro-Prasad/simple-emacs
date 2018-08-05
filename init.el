@@ -265,7 +265,7 @@
 ;; Aggressive indentation
 (use-package aggressive-indent
   :ensure t
-  :bind ("C-t i" . global-aggressive-indent-mode))
+  :bind ("C-t i" . aggressive-indent-mode))
 
 ;; Project management
 (use-package projectile

@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(flx counsel-projectile quickrun ein rjsx-mode typescript-mode popwin tabbar-ruler tabbar eshell-git-prompt shell-pop atom-one-dark-theme monokai-theme anaconda-mode py-autopep8 impatient-mode simple-httpd httpd company-web undo-tree diff-hl company-quickhelp company-irony company-tern expand-region magit-gitflow flycheck-clang-analyzer flycheck hungry-delete))
+   '(go-mode aggressive-indent flx counsel-projectile quickrun ein rjsx-mode typescript-mode popwin tabbar-ruler tabbar eshell-git-prompt shell-pop atom-one-dark-theme monokai-theme anaconda-mode py-autopep8 impatient-mode simple-httpd httpd company-web undo-tree diff-hl company-quickhelp company-irony company-tern expand-region magit-gitflow flycheck-clang-analyzer flycheck hungry-delete))
  '(safe-local-variable-values
    '((c-file-offsets
       (substatement-open . 0)
@@ -25,6 +25,8 @@
  ;; If there is more than one, they won't work right.
  '(flycheck-error ((((class color)) (:underline "Red"))))
  '(flycheck-warning ((((class color)) (:underline "OrangeRed"))))
+ '(hl-line ((t (:background "#1d1a10"))))
+ '(region ((t (:inherit default :inverse-video t))))
  '(tabbar-button ((t (:inherit default :box nil :height 104 :width normal :family "Sans Serif"))))
  '(tabbar-highlight ((t nil)))
  '(tabbar-selected ((t (:inherit default :stipple nil :weight normal :height 150 :width normal :family "Sans Serif"))))

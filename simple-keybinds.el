@@ -1,4 +1,3 @@
-(global-unset-key (kbd "C-t"))
 (bind-keys
 ;; Manage escaping out of errors
  ([escape] . keyboard-escape-quit)

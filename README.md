@@ -181,7 +181,7 @@ Work in progress.
 
 - To undo a change press `C-z`.
 - To redo changes press `C-S-z`.
-- If the undo/redo is confusing you then press `C-/` to visualize undo tree. Use
+- If the undo/redo is confusing you then press `C-x u` to visualize undo tree. Use
   `up`/`down` to navigate history or `q` to close the tree.
 - Undo history is saved throughout sessions.
 

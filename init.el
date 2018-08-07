@@ -450,7 +450,7 @@
   :bind (("C-z" . undo-tree-undo)
          ("C-S-z" . undo-tree-redo)
          :map undo-tree-map
-         ("C-/" . undo-tree-visualize)
+         ("C-/" . nil)
          :map undo-tree-visualizer-selection-mode-map  ; TODO
          ([escape] . undo-tree-visualizer-quit))
   :init (global-undo-tree-mode 1)

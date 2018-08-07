@@ -12,6 +12,7 @@
  ("C-r" . simple-emacs/find-symbol)
  ("C-n" . simple-emacs/create-new-file)
  ("C-o" . simple-emacs/open-existing-file)
+ ("C-/" . simple-emacs/toggle-comment)
 
  ("C-s" . save-buffer)
  ("C-a" . mark-whole-buffer)

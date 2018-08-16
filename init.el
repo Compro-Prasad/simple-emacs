@@ -144,7 +144,7 @@
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
 ;; disable toolbar mode
-;; (tool-bar-mode 0)
+(tool-bar-mode 0)
 
 ;; Highlight current line
 (add-hook 'prog-mode-hook 'hl-line-mode)

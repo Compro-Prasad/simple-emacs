@@ -72,3 +72,15 @@ This command does not push text to `kill-ring'."
             (setq beg (region-beginning) end (region-end))
             (setq beg (line-beginning-position) end (line-end-position)))
         (comment-or-uncomment-region beg end)))
+
+(defun simple-emacs/duplicate-line ()
+  "Duplicates current line."
+  (interactive)
+  (save-excursion
+    (kill-ring-save
+     (progn (beginning-of-line) (point))
+     (progn (end-of-line) (point)))
+    (newline)
+    (yank)
+    (setq kill-ring (cdr kill-ring)))
+  (next-line))

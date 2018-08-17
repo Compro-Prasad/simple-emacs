@@ -20,23 +20,23 @@
    (concat "untitled-" (format "%d" simple-emacs/new-file-count)))
   (setq simple-emacs/new-file-count (1+ simple-emacs/new-file-count)))
 
+(defun simple-emacs/select-current-word ()
+  "Select the word under cursor.
+“word” here is considered any alphanumeric sequence with “_” or “-”."
+  (interactive)
+  (let (pt)
+    (skip-chars-backward "-_A-Za-z0-9")
+    (setq pt (point))
+    (skip-chars-forward "-_A-Za-z0-9")
+    (set-mark pt)))
+
 (defun simple-emacs/delete-word (arg)
   "Delete characters forward until encountering the end of a word.
 With argument, do this that many times.
 This command does not push text to `kill-ring'."
   (interactive "p")
-  (delete-region
-   (point)
-   (progn
-     (forward-word arg)
-     (point))))
-
-(defun simple-emacs/backward-delete-word (arg)
-  "Delete characters backward until encountering the beginning of a word.
-With argument, do this that many times.
-This command does not push text to `kill-ring'."
-  (interactive "p")
-  (simple-emacs/delete-word (- arg)))
+  (simple-emacs/select-current-word)
+  (call-interactively 'delete-region))
 
 (defun simple-emacs/delete-line ()
   "Delete text from current position to end of line char.
@@ -44,8 +44,7 @@ This command does not push text to `kill-ring'."
   (interactive)
   (delete-region
    (point)
-   (progn (end-of-line 1) (point)))
-  (delete-char 1))
+   (progn (end-of-line 1) (point))))
 
 (defun simple-emacs/delete-line-backward ()
   "Delete text between the beginning of the line to the cursor position.
@@ -84,16 +83,6 @@ This command does not push text to `kill-ring'."
     (yank)
     (setq kill-ring (cdr kill-ring)))
   (next-line))
-
-(defun simple-emacs/select-current-word ()
-  "Select the word under cursor.
-“word” here is considered any alphanumeric sequence with “_” or “-”."
-  (interactive)
-  (let (pt)
-    (skip-chars-backward "-_A-Za-z0-9")
-    (setq pt (point))
-    (skip-chars-forward "-_A-Za-z0-9")
-    (set-mark pt)))
 
 (defun simple-emacs/increment-number (arg)
   (interactive "p")

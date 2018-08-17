@@ -15,6 +15,9 @@
  ("C-/" . simple-emacs/toggle-comment)
  ("C-M-d" . simple-emacs/duplicate-line)
 
+ ("M-+" . simple-emacs/increment-number)
+ ("M-=" . simple-emacs/decrement-number)
+
  ("C-s" . save-buffer)
  ("C-a" . mark-whole-buffer)
  ("C-q" . save-buffers-kill-emacs)

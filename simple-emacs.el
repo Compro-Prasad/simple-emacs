@@ -84,3 +84,27 @@ This command does not push text to `kill-ring'."
     (yank)
     (setq kill-ring (cdr kill-ring)))
   (next-line))
+
+(defun simple-emacs/select-current-word ()
+  "Select the word under cursor.
+“word” here is considered any alphanumeric sequence with “_” or “-”."
+  (interactive)
+  (let (pt)
+    (skip-chars-backward "-_A-Za-z0-9")
+    (setq pt (point))
+    (skip-chars-forward "-_A-Za-z0-9")
+    (set-mark pt)))
+
+(defun simple-emacs/increment-number (arg)
+  (interactive "p")
+  (let* ((tap (thing-at-point 'sexp 'no-properties))
+         (num (string-to-number tap)))
+    (when (numberp num)
+      (simple-emacs/select-current-word)
+      (setq num (if (< arg 0) (1- num) (1+ num)))
+      (call-interactively 'delete-region)
+      (insert (number-to-string num)))))
+
+(defun simple-emacs/decrement-number ()
+  (interactive)
+  (simple-emacs/increment-number -1))

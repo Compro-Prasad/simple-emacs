@@ -12,6 +12,9 @@
 | C-n        | simple-emacs/create-new-file | Creates a new empty buffer |
 | C-w        | kill-buffer                  | Kills a buffer             |
 | C-f4       | kill-current-buffer          | Kills current buffer       |
+| C-x b      | switch-buffer                | Switch to a named buffer   |
+| C-tab      | tabbar-forward-tab           | Switch to next tab         |
+| C-S-tab    | tabbar-backward-tab          | Switch to previous tab     |
 
 ## In-buffer operations
 | Keybinding  | Command                           | Comment                                           |

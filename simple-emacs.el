@@ -31,14 +31,34 @@
     (set-mark pt)))
 
 (defun simple-emacs/delete-word (arg)
-  "Delete characters forward until encountering the end of a word.
-With argument, do this that many times.
-This command does not push text to `kill-ring'."
+  "Delete word under point."
   (interactive "p")
   (simple-emacs/select-current-word)
   (call-interactively 'delete-region))
 
-(defun simple-emacs/delete-line ()
+(defun simple-emacs/forward-delete-word (arg)
+  "Delete characters forward until encountering the end of a word.
+With argument, do this that many times.
+This command does not push text to `kill-ring'."
+  (interactive "p")
+  (delete-region
+   (point)
+   (progn
+     (forward-word arg)
+     (point))))
+
+(defun simple-emacs/backward-delete-word (arg)
+  "Delete characters backward until encountering the beginning of a word.
+With argument, do this that many times.
+This command does not push text to `kill-ring'."
+  (interactive "p")
+  (delete-region
+   (point)
+   (progn
+     (backward-word arg)
+     (point))))
+
+(defun simple-emacs/delete-line-forward ()
   "Delete text from current position to end of line char.
 This command does not push text to `kill-ring'."
   (interactive)

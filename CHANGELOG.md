@@ -1,3 +1,38 @@
+# v0.2.0
+
+- Keybinding list is now available in `KEYBINDINGS.md`
+
+- `C-backspace` and `C-delete` delete words separated by punctuations
+
+- `M-d` deletes the word under point separated by space
+
+- Increment and decrement numbers using `M-+` and `M-=` respectively
+
+- `C-M-d` duplicates current line
+
+- Disabled toolbar by default
+
+- `C-/` comments or uncomments line or region
+
+- `C-x u` opens the undo tree
+
+- Added `go-mode` and `aggressive-indent`
+
+- `aggressive-indent-mode` is on `C-t i`
+
+- Font colors of modeline, region and hl-line colors are changed
+
+- Enabled fuzzy matching in ivy
+
+- `C-S-l` makes new cursors on each line in a region
+
+- Remove `eshell-did-yu-mean` and `eshell-fringe-status`
+
+- Replaced `helm` with `ivy`
+
+- `C-t` is the new toggling prefix
+
+
 # v0.1.1
 - Removed shortcuts: `C-i` for `TAB`, `C-j` for `\n` and `C-[` for `ESC`
 

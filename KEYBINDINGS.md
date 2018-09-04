@@ -1,5 +1,7 @@
 # Keybindings in Simple Emacs
 
+New users should know the [keybinding conventions](#some-keybinding-conventions).
+
 ## File operations
 | Keybinding | Command                         | Comment                                      |
 |------------|---------------------------------|----------------------------------------------|

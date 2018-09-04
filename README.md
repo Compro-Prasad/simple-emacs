@@ -3,22 +3,22 @@ Simple Emacs for Simple Users
 
 # Introduction
 
-GNU Emacs is a beast that cannot be tamed easily. So, I have tried to convert
-this beast into a puppy that you will love using. If the puppy gets harsh on you
-then open an [issue](https://github.com/Compro-Prasad/simple-emacs/issues) or
-send a [pull request](https://github.com/Compro-Prasad/simple-emacs/pulls) so
-that we can work towards a better simple Emacs.
-
+This is an Emacs configuration specially designed for new users. Emacs and vi
+users currently have zero support from this configuration as all the shortcuts
+have been simplified for normal usage.
 
 ![Simple Emacs](./images/simple-emacs.png)
 ![Completion](./images/completion.gif)
+
 
 # Quick Jump
 
 - [Install development version of Emacs](#requirements)
 - [Install simple-emacs](#installing-simple-emacs)
 - [Keybinding conventions](#some-keybinding-conventions)
+- [Keybinding list](./KEYBINDINGS.md)
 - [Different features](#c-g-the-panic-key)
+
 
 # Target users
 
@@ -26,18 +26,7 @@ This configuration is targeted towards new users who have been using modern
 editors like Sublime Text and want to see the power of Emacs.
 
 
-# Why should I switch?
-
-- This configuration of Emacs ensures that anybody can dive into with zero
-  configurations provided you have latest Emacs and this configuration.
-- If you feel anything is missing then digging deep is very easy with high
-  quality documentation from right within the editor itself.
-- Huge technical help is available once you get to know the basics about Emacs
-  and Elisp.
-- You come to learn lots of things by just knowing the internals of Emacs.
-
-
-# Why should I not switch?
+# Drawbacks of using this configuration?
 
 - This is a beta configuration and forever will be in beta. If you don't have time
   to check out this configuration and report bugs, features and keybindings then
@@ -58,8 +47,8 @@ editors like Sublime Text and want to see the power of Emacs.
 # Requirements
 
 This has been tested on GNU Emacs development build on Linux. Other stable
-versions of Emacs which are normally available through an app store will not
-work with this configuration.
+versions of Emacs which are normally available through an app store might work
+with this configuration but wont be supported from my side.
 
 The best option I recommend is to compile Emacs from source from
 https://git.sv.gnu.org/emacs.git but that might be hard for newbies. So, there

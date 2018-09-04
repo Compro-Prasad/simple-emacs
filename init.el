@@ -1,5 +1,4 @@
 (require 'package)
-(require 'f)
 
 (setq package-enable-at-startup nil)
 
@@ -16,6 +15,14 @@
   (progn
     (package-refresh-contents)
     (package-install 'use-package)))
+
+;; Install f for manipulating files
+(if (package-installed-p 'f)
+    (require 'f)
+  (progn
+    (package-refresh-contents)
+    (package-install 'f)
+    (require 'f)))
 
 
 

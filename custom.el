@@ -6,7 +6,11 @@
  '(package-selected-packages
    '(go-mode aggressive-indent flx counsel-projectile quickrun ein rjsx-mode typescript-mode popwin tabbar-ruler tabbar eshell-git-prompt shell-pop atom-one-dark-theme monokai-theme anaconda-mode py-autopep8 impatient-mode simple-httpd httpd company-web undo-tree diff-hl company-quickhelp company-irony company-tern expand-region magit-gitflow flycheck-clang-analyzer flycheck hungry-delete))
  '(safe-local-variable-values
-   '((c-file-offsets
+   '((web-mode-script-padding . 0)
+     (web-mode-block-padding . 0)
+     (web-mode-style-padding . 0)
+     (web-mode-part-padding . 2)
+     (c-file-offsets
       (substatement-open . 0)
       (arglist-intro . +)
       (arglist-close . +))))

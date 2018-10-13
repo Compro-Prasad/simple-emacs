@@ -20,7 +20,7 @@
 (use-package eshell-git-prompt
   :ensure t :defer t
   :init
-  (eshell-git-prompt-use-theme 'powerline))
+  (eshell-git-prompt-use-theme 'robbyrussell))
 
 (defun simple-emacs/init-eshell ()
   "Initialize shell"

@@ -41,5 +41,51 @@
                        'run-current-buffer-in-eshell 'quickrun-button
                        :help   "Run current buffer.<F9 s>")))
 
+
+
+;; Language Server Protocol implementation
+(use-package lsp-mode
+  :init
+  (progn
+    (require 'lsp-imenu)
+    (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
+    (use-package company-lsp)
+    (use-package lsp-ui
+      :bind
+      (:map lsp-ui-mode-map
+            ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
+            ([remap xref-find-references] . lsp-ui-peek-find-references)))))
+
+
+
+
+;; C/C++
+(use-package ccls
+  :commands lsp-ccls-enable
+  :init
+  (defun ccls/enable ()
+    "Enable ccls in current buffer."
+    (interactive)
+    (condition-case nil
+        (lsp-ccls-enable)
+      (user-error nil)))
+
+  (defun ccls/enable-hook ()
+    "Enable ccls whenever a C/C++ file opens."
+    (interactive)
+    (add-hook 'c-mode-common-hook #'ccls/enable))
+
+  (defun ccls/disable-hook ()
+    "Remove ccls from c-mode-common-hook."
+    (interactive)
+    (remove-hook 'c-mode-common-hook #'ccls/enable))
+
+  (with-eval-after-load 'c++-mode
+    (define-key c++-mode-map (kbd "M-.") 'lsp-ui-peek-jump-forward)
+    (define-key c++-mode-map (kbd "M-,") 'lsp-ui-peek-jump-backward))
+
+  ;; Remove this if you want to enable per buffer manually
+  (ccls/enable-hook))
+
 (provide 'simple-languages)
 ;;; simple-languages.el ends here

@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(go-mode aggressive-indent flx counsel-projectile quickrun ein rjsx-mode typescript-mode popwin tabbar-ruler tabbar eshell-git-prompt shell-pop atom-one-dark-theme monokai-theme anaconda-mode py-autopep8 impatient-mode simple-httpd httpd company-web undo-tree diff-hl company-quickhelp company-irony company-tern expand-region magit-gitflow flycheck-clang-analyzer flycheck hungry-delete))
+   '(company-lsp ccls lsp-ui lsp-mode go-mode aggressive-indent flx counsel-projectile quickrun ein rjsx-mode typescript-mode popwin tabbar-ruler tabbar eshell-git-prompt shell-pop atom-one-dark-theme monokai-theme anaconda-mode py-autopep8 impatient-mode simple-httpd httpd company-web undo-tree diff-hl company-quickhelp company-irony company-tern expand-region magit-gitflow flycheck-clang-analyzer flycheck hungry-delete))
  '(safe-local-variable-values
    '((web-mode-script-padding . 0)
      (web-mode-block-padding . 0)

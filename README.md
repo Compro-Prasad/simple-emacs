@@ -7,9 +7,6 @@ This is an Emacs configuration specially designed for new users. Emacs and vi
 users currently have zero support from this configuration as all the shortcuts
 have been simplified for normal usage.
 
-![Simple Emacs](./images/simple-emacs.png)
-![Completion](./images/completion.gif)
-
 
 # Quick Jump
 
